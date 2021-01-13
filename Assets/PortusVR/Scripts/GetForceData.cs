@@ -19,6 +19,5 @@ public class GetForceData : MonoBehaviour
     {
         //JointTest.connectedBody = rb;
         txt.text = "Force " + JointTest.currentForce.magnitude;
-        Debug.Log("Force " + JointTest.currentForce);
     }
 }
