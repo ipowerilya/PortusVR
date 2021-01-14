@@ -79,7 +79,6 @@ namespace BNG {
         GrabbablesInTrigger gZone;
 
         Rigidbody heldItemRigid;
-        bool heldItemWasKinematic;
         Grabbable trackedItem; // If we can't drop the item, track it separately
 
         // Closest Grabbable in our trigger
@@ -231,15 +230,6 @@ namespace BNG {
             HeldItem = grab;
             heldItemRigid = HeldItem.GetComponent<Rigidbody>();
 
-            // Mark as kinematic so it doesn't fall down
-            /*if(heldItemRigid) {
-                heldItemWasKinematic = heldItemRigid.isKinematic;
-                heldItemRigid.isKinematic = true;
-            }
-            else {
-                heldItemWasKinematic = false;
-            }*/
-
             // Set the parent of the object 
             grab.transform.parent = transform;
 
@@ -377,11 +367,6 @@ namespace BNG {
                 }
             }
             disabledColliders = null;
-
-            // Reset Kinematic status
-            /*if(heldItemRigid) {
-                heldItemRigid.isKinematic = heldItemWasKinematic;
-            }*/
 
             // Reset joint
             Destroy(snappedObjectJoint);

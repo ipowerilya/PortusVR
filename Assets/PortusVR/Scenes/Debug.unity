@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 174186962}
   - component: {fileID: 174186961}
   - component: {fileID: 174186965}
+  - component: {fileID: 174186966}
   m_Layer: 0
   m_Name: "\u041F\u0430\u043B\u043A\u0430"
   m_TagString: Untagged
@@ -302,14 +303,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174186960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.844, y: 1.46, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.092, y: 2.117, z: 0}
   m_LocalScale: {x: 2, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1768964855}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!54 &174186965
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -324,8 +325,43 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 62
+  m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!59 &174186966
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174186960}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: -0.5, y: 0.5, z: 0}
+  m_Axis: {x: 0, y: 0, z: 1}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -0.041999873, y: 3.117, z: 0}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_Limits:
+    min: 0
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &345135721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1559,7 @@ MonoBehaviour:
   ParentHandModel: 0
   SnapHandModel: 1
   CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
+  CanBeSnappedToSnapZone: 0
   ForceDisableKinematicOnDrop: 0
   CustomHandPose: 0
   SecondaryGrabBehavior: 0
