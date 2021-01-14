@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -233,7 +232,12 @@ namespace BNG {
             // Set the parent of the object 
             grab.transform.parent = transform;
 
-            // Add fixed joint
+            // portus peter 14_01_21
+            grab.transform.localPosition = Vector3.zero;
+            grab.transform.localEulerAngles = Vector3.zero;
+
+
+            // portus alexy 14_01_21
             snappedObjectJoint = SnapToObject.gameObject.AddComponent<FixedJoint>();
             snappedObjectJoint.connectedBody = heldItemRigid;
 
@@ -308,36 +312,23 @@ namespace BNG {
 
                     var g = HeldItem;
 
-                    if(DuplicateItemOnGrab) {
+                    ReleaseAll();
 
-                        ReleaseAll();
+                    // Position next to grabber if somewhat far away
+                    if (Vector3.Distance(g.transform.position, grabber.transform.position) > 0.2f)
+                    {
+                        g.transform.position = grabber.transform.position;
+                    }
 
-                        // Position next to grabber if somewhat far away
-                        if (Vector3.Distance(g.transform.position, grabber.transform.position) > 0.2f) {
-                            g.transform.position = grabber.transform.position;
-                        }
-
+                    if (DuplicateItemOnGrab) {
                         // Instantiate the object before it is grabbed
                         GameObject go = Instantiate(g.gameObject, transform.position, Quaternion.identity) as GameObject;
                         Grabbable grab = go.GetComponent<Grabbable>();
-
                         // Ok to attach it to snap zone now
                         this.GrabGrabbable(grab);
-
-                        // Finish Grabbing the desired object
-                        grabber.GrabGrabbable(g);
                     }
-                    else {
-                        ReleaseAll();
-
-                        // Position next to grabber if somewhat far away
-                        if (Vector3.Distance(g.transform.position, grabber.transform.position) > 0.2f) {
-                            g.transform.position = grabber.transform.position;
-                        }
-
-                        // Do grab
-                        grabber.GrabGrabbable(g);
-                    }
+                    // Do grab
+                    grabber.GrabGrabbable(g);
                 }
             }
         }
