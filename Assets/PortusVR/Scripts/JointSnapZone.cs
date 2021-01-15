@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace BNG {
-    public class PhysSnapZone : MonoBehaviour {
+    public class JointSnapZone : MonoBehaviour {
 
         public GameObject SnapToObject;
         private Joint snappedObjectJoint;
@@ -88,6 +88,10 @@ namespace BNG {
 
         // Start is called before the first frame update
         void Start() {
+            SnapToObject = SnapToObject != null 
+                                         ? SnapToObject 
+                                         : this.transform.parent.gameObject;
+
             gZone = GetComponent<GrabbablesInTrigger>();
             _scaleTo = ScaleItem;
 
@@ -348,8 +352,6 @@ namespace BNG {
                 trackedItem = HeldItem;
             }
 
-            HeldItem.ResetScale();
-
             if (DisableColliders && disabledColliders != null) {
                 foreach (var c in disabledColliders) {
                     if(c) {
@@ -365,8 +367,10 @@ namespace BNG {
             HeldItem.enabled = true;
             HeldItem.transform.parent = null;
 
+            HeldItem.ResetScale();
+
             // Play Unsnap sound
-            if(HeldItem != null) {
+            if (HeldItem != null) {
                 if (SoundOnSnap) {
                     VRUtils.Instance.PlaySpatialClipAt(SoundOnUnsnap, transform.position, 0.75f);
                 }
