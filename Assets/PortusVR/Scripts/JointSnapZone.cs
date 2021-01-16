@@ -6,6 +6,7 @@ using UnityEngine.Events;
 namespace BNG {
     public class JointSnapZone : MonoBehaviour {
 
+        public bool SnapToParent;
         public GameObject SnapToObject;
         private Joint snappedObjectJoint;
 
@@ -90,7 +91,8 @@ namespace BNG {
         void Start() {
             SnapToObject = SnapToObject != null 
                                          ? SnapToObject 
-                                         : this.transform.parent.gameObject;
+                                         : SnapToParent ? this.transform.parent.gameObject
+                                                        : null;
 
             gZone = GetComponent<GrabbablesInTrigger>();
             _scaleTo = ScaleItem;
@@ -238,8 +240,9 @@ namespace BNG {
             grab.transform.parent = transform;
 
             // portus peter 14_01_21
-            grab.transform.localPosition = Vector3.zero;
-            grab.transform.localEulerAngles = Vector3.zero;
+            var localOffset = this.gameObject.GetComponent<LocalSnapOffset>();
+            grab.transform.localPosition = localOffset != null ? localOffset.position : Vector3.zero;
+            grab.transform.localEulerAngles = localOffset != null ? localOffset.rotation : Vector3.zero;
 
 
             // portus alexy 14_01_21
@@ -249,10 +252,10 @@ namespace BNG {
             // Set scale factor            
             // Use SnapZoneScale if specified
             if (grab.GetComponent<SnapZoneScale>()) {
-                _scaleTo = grab.GetComponent<SnapZoneScale>().Scale;
+                _scaleTo *= grab.GetComponent<SnapZoneScale>().Scale;
             }
             else {
-                _scaleTo = ScaleItem;
+                _scaleTo *= ScaleItem;
             }
 
             // Is there an offset to apply?
