@@ -122,14 +122,15 @@ namespace BNG {
                     ReleaseAll();
                 }
                 else {
+                    // Make sure this can't be grabbed from the snap zone
+                    if (HeldItem.enabled || (disabledColliders != null && disabledColliders.Count > 0 && disabledColliders[0] != null && disabledColliders[0].enabled))
+                    {
+                        disableGrabbable(HeldItem);
+                    }
+
                     // Scale Item while inside zone.                                            
                     float localScale = HeldItem.OriginalScale * _scaleTo;
                     HeldItem.transform.localScale = Vector3.Lerp(HeldItem.transform.localScale, new Vector3(localScale, localScale, localScale), Time.deltaTime * 30f);
-                    
-                    // Make sure this can't be grabbed from the snap zone
-                    if(HeldItem.enabled || (disabledColliders != null && disabledColliders.Count > 0 && disabledColliders[0] != null && disabledColliders[0].enabled)) {
-                        disableGrabbable(HeldItem);
-                    }
                 }
             }
 
