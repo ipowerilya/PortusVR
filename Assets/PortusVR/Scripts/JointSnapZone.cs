@@ -8,7 +8,7 @@ namespace BNG {
 
         public bool SnapToParent;
         public GameObject SnapToObject;
-        private Joint snappedObjectJoint;
+        public Joint SnappedObjectJoint;
 
         [Header("Starting / Held Item")]
         [Tooltip("The currently held item. Set this in the editor to equip on start.")]
@@ -246,8 +246,10 @@ namespace BNG {
 
 
             // portus alexy 14_01_21
-            snappedObjectJoint = SnapToObject.gameObject.AddComponent<FixedJoint>();
-            snappedObjectJoint.connectedBody = heldItemRigid;
+            /*SnappedObjectJoint = SnapToObject.gameObject.AddComponent<FixedJoint>();
+            SnappedObjectJoint.connectedBody = heldItemRigid;*/
+            SnappedObjectJoint = SnapToObject.gameObject.AddComponent<FixedJoint>();
+            SnappedObjectJoint.connectedBody = heldItemRigid;
 
             // Set scale factor            
             // Use SnapZoneScale if specified
@@ -366,7 +368,7 @@ namespace BNG {
             disabledColliders = null;
 
             // Reset joint
-            Destroy(snappedObjectJoint);
+            Destroy(SnappedObjectJoint);
 
             HeldItem.enabled = true;
             HeldItem.transform.parent = null;
