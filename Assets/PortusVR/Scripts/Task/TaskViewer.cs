@@ -8,48 +8,32 @@ public class TaskViewer : MonoBehaviour
     public List<Toggle> Toggles = new List<Toggle>();
     public int CurrentTaskIndex = 0;
 
-    public Text TaskText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Text TaskNameText;
+    public Text TaskDescriptionText;
+    public Text ScoreText;
 
     public void CalculateScore()
     {
-        TaskList[CurrentTaskIndex].CalculateScore();
-        TaskText.text = "Your score: " + TaskList[CurrentTaskIndex].TotalScore;
+        var currentTask = TaskList[CurrentTaskIndex];
+        currentTask.CalculateScore();
+        updateUI();
+        Toggles[CurrentTaskIndex].isOn = currentTask.IsCompleted;
     }
 
-    // Update is called once per frame
-    /*void Update()
+    private void updateUI()
     {
         var currentTask = TaskList[CurrentTaskIndex];
-        TaskText.text = currentTask.Description;
-        if(ComplitionList[CurrentTaskIndex])
-        {
-            TaskText.color = Color.green;
-            Toggles[CurrentTaskIndex].isOn = true;
-        }
-        else
-        {
-            TaskText.color = Color.red;
-            Toggles[CurrentTaskIndex].isOn = false;
-        }
+        TaskNameText.text = (CurrentTaskIndex + 1).ToString() + ": " + currentTask.Name;
+        TaskDescriptionText.text = currentTask.Description;
+        ScoreText.text = "Ваш скор: " + currentTask.TotalScore;
+        ScoreText.color = currentTask.IsCompleted
+                        ? Color.green
+                        : Color.red;
     }
-    public void TaskIsDone(int TaskNumb)
-    {
-        ComplitionList[TaskNumb] = true;
-    }
+
     public void MoveTask(int MoveValue)
     {
-        if(MoveValue < 0 && CurrentTaskIndex >0)
-        {
-            CurrentTaskIndex--;
-        }
-        else if (MoveValue > 0 && CurrentTaskIndex < TaskList.Count - 1)
-        {
-            CurrentTaskIndex++;
-        }
-    }*/
+        CurrentTaskIndex = Mathf.Clamp(CurrentTaskIndex + MoveValue, 0, TaskList.Count - 1);
+        updateUI();
+    }
 }

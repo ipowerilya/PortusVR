@@ -8,27 +8,27 @@ public class Task : MonoBehaviour
     public string Name = "New Task";
     public string Description = "New Task Description";
     public float TotalScore = 0;
-    public float completionScore = 0f;
+    public float CompletionScore = 0f;
     
     public bool IsCompleted { get; set; } = false;
 
-    public ScoreCalculator[] scoreCalculators;
-    public float[] weights;
+    public ScoreCalculator[] ScoreCalculators;
+    public float[] Weights;
 
     public void CalculateScore()
     {
         IsCompleted = true;
-        var weightSum = weights.Sum();
+        var weightSum = Weights.Sum();
 
         Debug.Assert(weightSum >= 0.99 && weightSum <= 1.01);
-        Debug.Assert(scoreCalculators.Length == weights.Length);
+        Debug.Assert(ScoreCalculators.Length == Weights.Length);
 
         TotalScore = 0;
-        for (int i = 0; i < scoreCalculators.Length && IsCompleted; ++i)
+        for (int i = 0; i < ScoreCalculators.Length && IsCompleted; ++i)
         {
-            var score = scoreCalculators[i].CalculateScore();
-            IsCompleted = score >= completionScore;
-            TotalScore += score * weights[i];
+            var score = ScoreCalculators[i].CalculateScore();
+            IsCompleted = score >= CompletionScore;
+            TotalScore += score * Weights[i];
         }
     }
 }
