@@ -15,6 +15,7 @@ public class TaskViewer : MonoBehaviour
     public void CalculateScore()
     {
         var currentTask = TaskList[CurrentTaskIndex];
+        Debug.Log("Calculating score for task " + CurrentTaskIndex);
         currentTask.CalculateScore();
         updateUI();
         Toggles[CurrentTaskIndex].isOn = currentTask.IsCompleted;

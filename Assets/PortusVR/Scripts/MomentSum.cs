@@ -10,6 +10,7 @@ public class MomentSum : MonoBehaviour
     public JointSnapZone[] snapZones;
     public float moment;
     public Text outputText;
+    public Rigidbody Object;
 
     void FixedUpdate()
     {
