@@ -6,6 +6,7 @@ public class GetForceData : MonoBehaviour
 {
     public Joint JointTest;
     public Text txt;
+    public float magnitData;
     //public Rigidbody rb;
 
     // Start is called before the first frame update
@@ -17,7 +18,9 @@ public class GetForceData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        magnitData = JointTest.currentForce.magnitude;
+        
         //JointTest.connectedBody = rb;
-        txt.text = "Force " + JointTest.currentForce.magnitude;
+        txt.text = "Force " + magnitData.ToString("0.00");
     }
 }
