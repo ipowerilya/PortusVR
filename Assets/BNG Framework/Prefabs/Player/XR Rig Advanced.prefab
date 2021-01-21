@@ -1130,6 +1130,7 @@ MonoBehaviour:
   HandVelocity: 1500
   DisableHandCollidersOnGrab: 0
   ParentToAttachPoint: 1
+  SnapBackDistance: 1
   ThisGrabber: {fileID: 3218240453531958521}
   DisableGrabber: {fileID: 8516297022294291282}
   ThisRemoteGrabber: {fileID: 4306185922907144754}
@@ -29414,7 +29415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6791623270841696367
 Transform:
   m_ObjectHideFlags: 0
@@ -29431,7 +29432,7 @@ Transform:
   - {fileID: 7369816875996241078}
   - {fileID: 955547691963338801}
   m_Father: {fileID: 5629437628528558491}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -12.041, y: -13, z: 90}
 --- !u!54 &6533141266226408137
 Rigidbody:
@@ -30066,7 +30067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2090996047450101451
 Transform:
   m_ObjectHideFlags: 0
@@ -30083,7 +30084,7 @@ Transform:
   - {fileID: 1233595972821759486}
   - {fileID: 3930842884031144106}
   m_Father: {fileID: 8516297022724069044}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -12.041, y: 13.000001, z: -90.00001}
 --- !u!54 &1559848266622223619
 Rigidbody:
@@ -30160,7 +30161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3719865057063539130
 Transform:
   m_ObjectHideFlags: 0
@@ -30175,7 +30176,7 @@ Transform:
   - {fileID: 3719865058531807309}
   - {fileID: 1860601019911651093}
   m_Father: {fileID: 5629437628528558491}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -12.041, y: -13, z: 90}
 --- !u!54 &3719865057063539109
 Rigidbody:
@@ -30282,7 +30283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3719865057960867376
 Transform:
   m_ObjectHideFlags: 0
@@ -30297,7 +30298,7 @@ Transform:
   - {fileID: 3719865057807339981}
   - {fileID: 5821838565606537737}
   m_Father: {fileID: 8516297022724069044}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -12.041, y: 13.000001, z: -90.00001}
 --- !u!54 &3719865057960867379
 Rigidbody:
@@ -37862,7 +37863,7 @@ Transform:
   - {fileID: 5342145711828172807}
   - {fileID: 536700789972570188}
   m_Father: {fileID: 8516297022724069044}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -12.041, y: 13.000001, z: -90.00001}
 --- !u!54 &1818759892480130181
 Rigidbody:
@@ -42616,6 +42617,7 @@ MonoBehaviour:
   HandVelocity: 1500
   DisableHandCollidersOnGrab: 0
   ParentToAttachPoint: 1
+  SnapBackDistance: 1
   ThisGrabber: {fileID: 939187171837121272}
   DisableGrabber: {fileID: 6969157712627478182}
   ThisRemoteGrabber: {fileID: 7555089936346331499}
@@ -44496,10 +44498,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6791623270841696367}
   - {fileID: 3719865057063539130}
   - {fileID: 5391072696156427376}
   - {fileID: 313639787627840837}
-  - {fileID: 6791623270841696367}
   - {fileID: 5741998780325667281}
   - {fileID: 9080890892975789755}
   - {fileID: 5942735107204280002}
@@ -62440,7 +62442,7 @@ Transform:
   - {fileID: 2689515530758305955}
   - {fileID: 8773551508666575502}
   m_Father: {fileID: 5629437628528558491}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -12.041, y: -13, z: 90}
 --- !u!54 &7624118640179388408
 Rigidbody:
@@ -67116,10 +67118,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2090996047450101451}
   - {fileID: 3719865057960867376}
   - {fileID: 216195980523312257}
   - {fileID: 5662867869597713717}
-  - {fileID: 2090996047450101451}
   - {fileID: 1534868306721015652}
   - {fileID: 7224215643001762554}
   - {fileID: 1466423749638071634}
@@ -68702,7 +68704,7 @@ Transform:
   - {fileID: 6734694579641222230}
   - {fileID: 1204028567209704450}
   m_Father: {fileID: 5629437628528558491}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -12.041, y: -13, z: 90}
 --- !u!54 &7322546232394585743
 Rigidbody:
@@ -71153,7 +71155,7 @@ Transform:
   - {fileID: 8695809659550708238}
   - {fileID: 546844258217629213}
   m_Father: {fileID: 8516297022724069044}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -12.041, y: 13.000001, z: -90.00001}
 --- !u!54 &2865395259601916870
 Rigidbody:
