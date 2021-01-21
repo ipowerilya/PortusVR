@@ -253,7 +253,7 @@ namespace BNG {
             SnappedObjectJoint.anchor = this.transform.localPosition;
             SnappedObjectJoint.connectedBody = heldItemRigid;
 
-            // Set scale factor            
+            // Set scale factor
             // Use SnapZoneScale if specified
             if (grab.GetComponent<SnapZoneScale>()) {
                 _scaleTo *= grab.GetComponent<SnapZoneScale>().Scale;
