@@ -552,7 +552,7 @@ MonoBehaviour:
   BeingHeld: 0
   GrabButton: 2
   Grabtype: 2
-  GrabPhysics: 3
+  GrabPhysics: 0
   GrabMechanic: 0
   GrabSpeed: 10
   RemoteGrabbable: 1
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c3ddc9a706cf5409f8b448e8f92af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: -0.2, z: 0}
+  position: {x: 0, y: -0.1, z: 0}
   rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5636482436122076042
 GameObject:

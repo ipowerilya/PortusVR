@@ -248,7 +248,9 @@ namespace BNG {
             // portus alexy 14_01_21
             /*SnappedObjectJoint = SnapToObject.gameObject.AddComponent<FixedJoint>();
             SnappedObjectJoint.connectedBody = heldItemRigid;*/
-            SnappedObjectJoint = SnapToObject.gameObject.AddComponent<FixedJoint>();
+            SnappedObjectJoint = SnapToObject.gameObject.AddComponent<HingeJoint>();
+            SnappedObjectJoint.axis = new Vector3(0f,0f,1f);
+            SnappedObjectJoint.anchor = this.transform.localPosition;
             SnappedObjectJoint.connectedBody = heldItemRigid;
 
             // Set scale factor            

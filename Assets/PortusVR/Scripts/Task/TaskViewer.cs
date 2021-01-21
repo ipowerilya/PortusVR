@@ -26,7 +26,7 @@ public class TaskViewer : MonoBehaviour
         var currentTask = TaskList[CurrentTaskIndex];
         TaskNameText.text = (CurrentTaskIndex + 1).ToString() + ": " + currentTask.Name;
         TaskDescriptionText.text = currentTask.Description;
-        ScoreText.text = "Ваш скор: " + currentTask.TotalScore;
+        ScoreText.text = "Ваш счет: " + currentTask.TotalScore;
         ScoreText.color = currentTask.IsCompleted
                         ? Color.green
                         : Color.red;
@@ -35,6 +35,10 @@ public class TaskViewer : MonoBehaviour
     public void MoveTask(int MoveValue)
     {
         CurrentTaskIndex = Mathf.Clamp(CurrentTaskIndex + MoveValue, 0, TaskList.Count - 1);
+        updateUI();
+    }
+    public void Start()
+    {
         updateUI();
     }
 }
