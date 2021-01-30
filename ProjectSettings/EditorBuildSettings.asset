@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/PortusVR/Scenes/Debug.unity
     guid: b94a10f40346a524189ffb8c3ce70848
   - enabled: 0
     path: Assets/BNG Framework/Scenes/XR Demo.unity
     guid: a1360534006d3f845bc79b46b93cfec5
+  - enabled: 1
+    path: Assets/PortusVR/Scenes/hub.unity
+    guid: ca4c12be99db73d4690f0ecd315b0924
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b3ac24369c63cb246976bcaf96adab11,
       type: 2}
