@@ -74,8 +74,8 @@ namespace BNG
             // Update label used for display or debugging
             if (LabelToUpdate)
             {
-                float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
-                val = val / SnapDegrees + 1;
+                float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees)*5;
+                val = val / SnapDegrees + 30;
                 LabelToUpdate.text = val.ToString("n0");
             }
         }
