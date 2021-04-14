@@ -663,7 +663,7 @@ MonoBehaviour:
   sectionPrefab: {fileID: 4846360220880800096, guid: fc36f9f6dacb6ef48bb62d4d5dd9ad46,
     type: 3}
   sectionHeight: 3
-  maxHeight: 2
+  maxHeight: 3
 --- !u!1001 &818938901
 PrefabInstance:
   m_ObjectHideFlags: 0
