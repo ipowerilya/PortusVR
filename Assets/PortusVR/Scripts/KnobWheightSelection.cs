@@ -36,6 +36,7 @@ namespace BNG
 
         private float _lastDegrees = 0;
         private float _lastSnapDegrees = 0;
+        public bool IsAngle;
 
         void Start()
         {
@@ -72,10 +73,19 @@ namespace BNG
             }
 
             // Update label used for display or debugging
+            if (IsAngle)
+            {
+                if (LabelToUpdate)
+                {
+                    float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees) * 5;
+                    val = val / SnapDegrees + 30;
+                    LabelToUpdate.text = val.ToString("n0");
+                }
+            }
             if (LabelToUpdate)
             {
-                float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees)*5;
-                val = val / SnapDegrees + 30;
+                float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
+                val = val / SnapDegrees+1;
                 LabelToUpdate.text = val.ToString("n0");
             }
         }
