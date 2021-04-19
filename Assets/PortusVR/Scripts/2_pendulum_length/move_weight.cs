@@ -14,7 +14,6 @@ public class move_weight : MonoBehaviour
     {
         fixedJoint = moving_point.GetComponent<FixedJoint>();
     }
-    
     public void UpdatePosition(float percentage)
     {
         Vector3 new_position = Vector3.Lerp(point_a.position, point_b.position, percentage / 100f);

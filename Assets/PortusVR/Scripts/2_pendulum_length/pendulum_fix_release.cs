@@ -15,6 +15,4 @@ public class pendulum_fix_release : MonoBehaviour
     {
         moving_part.GetComponent<Rigidbody>().isKinematic = false;
     }
-
-
 }

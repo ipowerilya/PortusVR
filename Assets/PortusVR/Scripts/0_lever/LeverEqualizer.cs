@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelEqualizer : MonoBehaviour
+public class LeverEqualizer : MonoBehaviour
 {
     public MomentSum momentA;
     public MomentSum momentB;
