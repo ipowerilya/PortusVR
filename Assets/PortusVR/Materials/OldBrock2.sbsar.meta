@@ -18,11 +18,11 @@ ScriptedImporter:
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://Old_Brick_Wall\" label=\"\" >\n  <presetinput
       identifier=\"$outputsize\" uid=\"1266522252\" type=\"8\" value=\"9,9\" />\n 
-      <presetinput identifier=\"$randomseed\" uid=\"470781662\" type=\"4\" value=\"1611\"
+      <presetinput identifier=\"$randomseed\" uid=\"470781662\" type=\"4\" value=\"5035\"
       />\n  <presetinput identifier=\"Mortar_level\" uid=\"1056917358\" type=\"0\"
-      value=\"0.65\" />\n  <presetinput identifier=\"Bricks_amount_x\" uid=\"1056768741\"
-      type=\"4\" value=\"13\" />\n  <presetinput identifier=\"Bricks_amount_y\" uid=\"1056771209\"
-      type=\"4\" value=\"34\" />\n </sbspreset>\n"
+      value=\"0.648\" />\n  <presetinput identifier=\"Bricks_amount_x\" uid=\"1056768741\"
+      type=\"4\" value=\"28\" />\n  <presetinput identifier=\"Bricks_amount_y\" uid=\"1056771209\"
+      type=\"4\" value=\"62\" />\n </sbspreset>\n"
     shaderName: Standard
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
