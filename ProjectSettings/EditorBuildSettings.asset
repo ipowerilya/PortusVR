@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/BNG Framework/Scenes/XR Demo.unity
     guid: a1360534006d3f845bc79b46b93cfec5
   - enabled: 1
-    path: Assets/PortusVR/Scenes/hub.unity
+    path: Assets/PortusVR/Scenes/scene_hub.unity
     guid: ca4c12be99db73d4690f0ecd315b0924
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b3ac24369c63cb246976bcaf96adab11,
