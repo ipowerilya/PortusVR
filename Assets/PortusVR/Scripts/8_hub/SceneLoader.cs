@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public bool disable = false;
-    private string loadedScene = null;
     public Transform playerTransform;
+    public string sceneName;
 
-    public void LoadScene(string sceneName)
+    string loadedScene = null;
+
+    public void SetNextScene(string name)
+    {
+        sceneName = name;
+    }
+
+    public void LoadScene()
     {
         if (!disable && loadedScene == null)
         {
@@ -17,22 +24,12 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    public void UnloadScene(string sceneName)
+    public void UnloadScene()
     {
-        if (disable && loadedScene != null && playerTransform.position.z < 0)
+        if (!disable && loadedScene != null && playerTransform.position.z < 0)
         {
-            StartCoroutine(AsyncUnloadScene(sceneName));
+            StartCoroutine(AsyncUnloadScene(loadedScene));
         }
-    }
-
-    public void LoadTest()
-    {
-        LoadScene("7_No_accel_speed");
-    }
-
-    public void UnloadTest()
-    {
-        UnloadScene("7_No_accel_speed");
     }
 
     IEnumerator AsyncLoadScene(string sceneName)
