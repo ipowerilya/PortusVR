@@ -80,7 +80,7 @@ public class CustomDoorHelper : MonoBehaviour {
         }
 
         // Play Open Sound
-        if (angle > 10) {
+        if (angle > 1) {
             if(!playedOpenSound) {
                 BNG.VRUtils.Instance.PlaySpatialClipAt(DoorOpenSound, transform.position, 1f, 1f);
                 playedOpenSound = true;
@@ -88,7 +88,7 @@ public class CustomDoorHelper : MonoBehaviour {
             }
         }
 
-        if(angle > 30) {
+        if(angle > 10) {
             readyToPlayCloseSound = true;
         }
 
