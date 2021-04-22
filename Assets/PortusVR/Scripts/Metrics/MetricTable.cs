@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class MetricTable : MonoBehaviour
 {
-    public List<string> orderedKeys = new List<string>()
+    public List<string> orderedKeys = new List<string>();
     public List<List<float>> rawTable = new List<List<float>>();
     Dictionary<string, int> keyIndex = new Dictionary<string, int>();
 

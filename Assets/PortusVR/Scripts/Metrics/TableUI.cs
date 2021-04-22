@@ -26,7 +26,7 @@ public class TableUI : MonoBehaviour
 
     void AppendText(HorizontalLayoutGroup group, string text)
     {
-        Instantiate(elementPrefab, group.transform).GetComponent<Text>();
+        Instantiate(elementPrefab, group.transform).GetComponent<Text>().text = text;
     }
 
     void InitTable()
@@ -49,7 +49,7 @@ public class TableUI : MonoBehaviour
         Destroy(rowGroup);
     }
 
-    void UpdateTable()
+    public void UpdateTable()
     {
         ClearRows();
         InitTable();
@@ -58,9 +58,10 @@ public class TableUI : MonoBehaviour
         for (int i = 0; i < table.rawTable[0].Count; ++i)
         {
             var elementGroup = AppendRow();
+            AppendText(elementGroup, (i+1).ToString());
             for (int j = 0; j < table.rawTable.Count; ++j)
             {
-                
+                AppendText(elementGroup, table.rawTable[j][i].ToString());
             }
         }
     }
