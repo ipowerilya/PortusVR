@@ -7,7 +7,12 @@ public class RecordTest : MonoBehaviour
     public MetricTable table;
     public void record()
     {
-        table.AddMetric("velocity", 1337f);
-        table.AddMetric("time", 123123f);
+        table.AddMetric("A", Random.Range(0, 1000));
+        table.AddMetric("B", Random.Range(0, 1000));
+    }
+
+    public void RecordByTag(string TagName)
+    {
+        table.AddMetric(TagName, Random.Range(0,1000));
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 
@@ -20,7 +21,7 @@ public class MetricTable : MonoBehaviour
         }
     }
 
-    public void AddMetric(string key, float value)
+    public void AddMetric(string key, float value = 0)
     {
         rawTable[keyIndex[key]].Add(value);
     }
@@ -66,8 +67,13 @@ public class MetricTable : MonoBehaviour
 
     public void DumpLab(string labName)
     {
-        var path = "username" + "-" + labName + "-" + DateTime.Now.ToString("yyyy-MM-dd-H-mm-ss") + ".csv";
-        DumpCSV(path);
+        var file_name = "username" + "-" + labName + "-" + DateTime.Now.ToString("yyyy-MM-dd-H-mm-ss") + ".csv";
+        DumpCSV(file_name);
         Clear();
+    }
+
+    public int GetMaxListCount()
+    {
+        return rawTable.Max(Table => Table.Count);
     }
 }
