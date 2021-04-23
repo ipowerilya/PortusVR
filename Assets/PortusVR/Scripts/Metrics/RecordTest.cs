@@ -15,4 +15,9 @@ public class RecordTest : MonoBehaviour
     {
         table.AddMetric(TagName, Random.Range(0,1000));
     }
+
+    public void DumpLabOnlyByLabName(string lab_name)
+    {
+        table.DumpLab(lab_name, "default");
+    }
 }
