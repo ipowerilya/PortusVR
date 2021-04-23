@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System; // for debug
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,7 +51,7 @@ public class TableUI : MonoBehaviour
         for (int i = rowGroup.transform.childCount - 1; i >= 0; --i)
         {
             GameObject.Destroy(rowGroup.transform.GetChild(i).gameObject);
-        }
+        } 
     }
 
     static float GetStandardDeviation(List<float> values)
@@ -63,7 +64,7 @@ public class TableUI : MonoBehaviour
 
     void AppendStatistics()
     {
-        var elementGroupMean = AppendRow();
+       var elementGroupMean = AppendRow();
         AppendText(elementGroupMean, "Mean");
         for (int i = 0; i < table.rawTable.Count; ++i)
         {

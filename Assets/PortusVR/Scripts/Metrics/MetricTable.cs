@@ -12,7 +12,7 @@ public class MetricTable : MonoBehaviour
     public List<List<float>> rawTable = new List<List<float>>();
     Dictionary<string, int> keyIndex = new Dictionary<string, int>();
 
-    void Awake()
+    public void Awake()
     {
         for (int i = 0; i < orderedKeys.Count; ++i)
         {
@@ -28,15 +28,15 @@ public class MetricTable : MonoBehaviour
 
     public void DumpCSV(string path, char delimeter = ',', char lineSeparator = '\n')
     {
-        var rowCount = rawTable[0].Count;
+        var rowCount = GetMaxListCount();
         if (rowCount == 0) return;
 
         var absPath = Application.persistentDataPath + "/" + path;
         Debug.Log("dumping table " + absPath);
 
         var file = File.Open(absPath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+        file.SetLength(0); // flush
         var writer = new StreamWriter(file);
-
         foreach (var key in orderedKeys)
         {
             writer.Write(key);
@@ -48,7 +48,11 @@ public class MetricTable : MonoBehaviour
         {
             for (int j = 0; j < rawTable.Count; ++j)
             {
-                writer.Write(rawTable[j][i]);
+
+                if (rawTable[j].Count > i)
+                    writer.Write(rawTable[j][i]);
+                else
+                    writer.Write("");
                 writer.Write(delimeter);
             }
             writer.Write(lineSeparator);
@@ -57,7 +61,7 @@ public class MetricTable : MonoBehaviour
         writer.Close();
     }
 
-    private void Clear()
+    private void ClearData()
     {
         for (int i = 0; i < rawTable.Count; ++i)
         {
@@ -65,11 +69,18 @@ public class MetricTable : MonoBehaviour
         }
     }
 
+    public void ClearDataAndKeys()
+    {
+        orderedKeys.Clear();
+        rawTable.Clear();
+        keyIndex.Clear();
+    }
+
     public void DumpLab(string labName)
     {
-        var file_name = "username" + "-" + labName + "-" + DateTime.Now.ToString("yyyy-MM-dd-H-mm-ss") + ".csv";
+        var file_name = "username" + "-" + labName + ".csv"; // DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")
         DumpCSV(file_name);
-        Clear();
+        // ClearData(); // I think it should be called directelly
     }
 
     public int GetMaxListCount()
