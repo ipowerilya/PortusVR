@@ -11,3 +11,6 @@ public class FloatEvent : UnityEvent<float> { }
 
 [System.Serializable]
 public class StringEvent : UnityEvent<string> { }
+
+[System.Serializable]
+public class MetricTableEvent : UnityEvent<MetricTable> { }

@@ -18,6 +18,6 @@ public class RecordTest : MonoBehaviour
 
     public void DumpLabOnlyByLabName(string lab_name)
     {
-        table.DumpLab(lab_name, "default");
+        table.DumpCSV(lab_name + "_default");
     }
 }

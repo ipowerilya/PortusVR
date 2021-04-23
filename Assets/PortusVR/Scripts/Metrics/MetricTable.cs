@@ -23,7 +23,14 @@ public class MetricTable : MonoBehaviour
 
     public void AddMetric(string key, float value = 0)
     {
-        rawTable[keyIndex[key]].Add(value);
+        if (keyIndex.ContainsKey(key))
+        {
+            rawTable[keyIndex[key]].Add(value);
+        }
+        else
+        {
+            throw new Exception("Metric key \"" + key + "\" does not exist");
+        }
     }
 
     public void DumpCSV(string path, char delimeter = ',', char lineSeparator = '\n')
@@ -76,15 +83,8 @@ public class MetricTable : MonoBehaviour
         keyIndex.Clear();
     }
 
-    public void DumpLab(string lab_name, string task_name) // TODO add task name
-    {
-        var file_name = "username" + "_" + lab_name + "_" + task_name + ".csv"; // DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")
-        DumpCSV(file_name);
-        // ClearData(); // I think it should be called directelly
-    }
-
     public int GetMaxListCount()
     {
-        return rawTable.Max(Table => Table.Count);
+        return rawTable.Max(table => table.Count);
     }
 }

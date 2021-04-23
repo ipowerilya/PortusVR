@@ -7,18 +7,17 @@ using UnityEngine.UI;
 
 public class TableUI : MonoBehaviour
 {
-    public MetricTable table;
     public RectTransform rowsOffset;
-    public GameObject rowGroupPrefab;
     public GameObject rowPrefab;
     public GameObject elementPrefab;
 
     VerticalLayoutGroup rowGroup;
 
-    void Start()
+    MetricTable table;
+
+    public void Start()
     {
-        InitTable();
-        AddHeading();
+        rowGroup = GetComponentInChildren<VerticalLayoutGroup>();
     }
 
     HorizontalLayoutGroup AppendRow()
@@ -26,14 +25,14 @@ public class TableUI : MonoBehaviour
         return Instantiate(rowPrefab, rowGroup.transform).GetComponent<HorizontalLayoutGroup>();
     }
 
+    public void SetTable(MetricTable table) 
+    {
+        this.table = table;
+    }
+
     void AppendText(HorizontalLayoutGroup group, string text)
     {
         Instantiate(elementPrefab, group.transform).GetComponent<Text>().text = text;
-    }
-
-    void InitTable()
-    {
-        rowGroup = Instantiate(rowGroupPrefab, rowsOffset.transform).GetComponent<VerticalLayoutGroup>();
     }
 
     void AddHeading()
@@ -70,14 +69,29 @@ public class TableUI : MonoBehaviour
             AppendText(elementGroupMean, "Mean");
             for (int i = 0; i < table.rawTable.Count; ++i)
             {
-                AppendText(elementGroupMean, table.rawTable[i].Average().ToString());
+                var values = table.rawTable[i];
+                if (values.Count == 0)
+                {
+                    AppendText(elementGroupMean, "empty");
+                }
+                else
+                {
+                    AppendText(elementGroupMean, values.Average().ToString());
+                }
             }
-
             var elementGroupSigma = AppendRow();
             AppendText(elementGroupSigma, "Sigma");
             for (int i = 0; i < table.rawTable.Count; ++i)
             {
-                AppendText(elementGroupSigma, GetStandardDeviation(table.rawTable[i]).ToString());
+                var values = table.rawTable[i];
+                if (values.Count == 0)
+                {
+                    AppendText(elementGroupMean, "empty");
+                }
+                else
+                {
+                    AppendText(elementGroupSigma, GetStandardDeviation(values).ToString());
+                }
             }
         }
 
@@ -86,7 +100,6 @@ public class TableUI : MonoBehaviour
     public void ResetTable()
     {
         ClearRows();
-        InitTable();
         AddHeading();
     }
 
