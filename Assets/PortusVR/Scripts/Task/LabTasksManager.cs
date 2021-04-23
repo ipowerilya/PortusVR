@@ -8,6 +8,8 @@ public class LabTasksManager : MonoBehaviour
     int currentTaskIndex = 0;
 
     public List<TableUI> tableUIs;
+    public TaskOverviewUI overviewUI;
+    public TaskUI taskUI;
 
     public LabTask GetCurrentTask()
     {
@@ -26,29 +28,40 @@ public class LabTasksManager : MonoBehaviour
         UpdateTableUIs();
     }
 
-    public bool SwitchToNextTask()
+    // TODO: оно здесь не должно быть наверное
+    public void ToggleDone()
+    {
+        GetCurrentTask().done = !GetCurrentTask().done;
+        UpdateTableUIs();
+        UpdateOverviewUI();
+    }
+
+    public void ResetResults()
+    {
+        GetCurrentTask().table.ClearData();
+        UpdateTableUIs();
+    }
+
+    public void SwitchToNextTask()
     {
         if (currentTaskIndex + 1 < tasks.Count)
         {
             SetCurrentTaskIndex(++currentTaskIndex);
-            return true;
         }
-        return false;
     }
-    public bool SwitchToPrevTask()
+    public void SwitchToPrevTask()
     {
         if (currentTaskIndex - 1 >= 0)
         {
             SetCurrentTaskIndex(--currentTaskIndex);
-            return true;
         }
-        return false;
     }
 
     public void SetCurrentTaskIndex(int index)
     {
         currentTaskIndex = index;
         UpdateTableUIs();
+        taskUI.SetTask(GetCurrentTask());
     }
     public int GetCurrentTaskIndex()
     {
@@ -70,6 +83,10 @@ public class LabTasksManager : MonoBehaviour
         }
     }
 
+    void UpdateOverviewUI()
+    {
+        overviewUI.UpdateUI();
+    }
 
     // GARBAGE BELOW
     public void record()
