@@ -64,19 +64,23 @@ public class TableUI : MonoBehaviour
 
     void AppendStatistics()
     {
-       var elementGroupMean = AppendRow();
-        AppendText(elementGroupMean, "Mean");
-        for (int i = 0; i < table.rawTable.Count; ++i)
+        if (table.GetMaxListCount() > 0)
         {
-            AppendText(elementGroupMean, table.rawTable[i].Average().ToString());
+            var elementGroupMean = AppendRow();
+            AppendText(elementGroupMean, "Mean");
+            for (int i = 0; i < table.rawTable.Count; ++i)
+            {
+                AppendText(elementGroupMean, table.rawTable[i].Average().ToString());
+            }
+
+            var elementGroupSigma = AppendRow();
+            AppendText(elementGroupSigma, "Sigma");
+            for (int i = 0; i < table.rawTable.Count; ++i)
+            {
+                AppendText(elementGroupSigma, GetStandardDeviation(table.rawTable[i]).ToString());
+            }
         }
 
-        var elementGroupSigma = AppendRow();
-        AppendText(elementGroupSigma, "Sigma");
-        for (int i = 0; i < table.rawTable.Count; ++i)
-        {
-            AppendText(elementGroupSigma, GetStandardDeviation(table.rawTable[i]).ToString());
-        }
     }
 
     public void ResetTable()

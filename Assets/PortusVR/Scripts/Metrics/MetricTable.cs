@@ -61,7 +61,7 @@ public class MetricTable : MonoBehaviour
         writer.Close();
     }
 
-    private void ClearData()
+    public void ClearData()
     {
         for (int i = 0; i < rawTable.Count; ++i)
         {
