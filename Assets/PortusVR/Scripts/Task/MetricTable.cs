@@ -37,10 +37,8 @@ public class MetricTable : MonoBehaviour
     {
         var rowCount = GetMaxListCount();
         if (rowCount == 0) return;
-
         var absPath = Application.persistentDataPath + "/" + path;
         Debug.Log("dumping table " + absPath);
-
         var file = File.Open(absPath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
         file.SetLength(0); // flush
         var writer = new StreamWriter(file);
@@ -64,7 +62,6 @@ public class MetricTable : MonoBehaviour
             }
             writer.Write(lineSeparator);
         }
-
         writer.Close();
     }
 

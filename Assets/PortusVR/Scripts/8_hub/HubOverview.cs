@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class HubOverview : MonoBehaviour
@@ -8,8 +10,10 @@ public class HubOverview : MonoBehaviour
     public List<Lab> labs;
     public LabOverviewUI labOverviewUI;
     public LabMenuUI labMenuUI;
-    public bool disableSceneLoading = false;
+    public bool DEBUGdisableSceneLoading = false;
+    public bool DEBUGdisableЬailSending = true;
     public Material DefaultSkybox;
+    public SendMailByMailMessage mailSender;
 
     public Transform playerTransform; // for scene loading
 
@@ -56,7 +60,7 @@ public class HubOverview : MonoBehaviour
     // TODO set scene to lab
     public void LoadScene()
     {
-        if (!disableSceneLoading && loadedScene == null)
+        if (!DEBUGdisableSceneLoading && loadedScene == null)
         {
             StartCoroutine(AsyncLoadScene());
         }
@@ -65,7 +69,7 @@ public class HubOverview : MonoBehaviour
     public void UnloadScene()
     {
         // TODO change player position check  to collider check
-        if (!disableSceneLoading && loadedScene != null && playerTransform.position.z < 0) 
+        if (!DEBUGdisableSceneLoading && loadedScene != null && playerTransform.position.z < 0) 
         {
             StartCoroutine(AsyncUnloadScene());
         }
@@ -94,6 +98,60 @@ public class HubOverview : MonoBehaviour
         }
         loadedScene = null;
         RenderSettings.skybox = DefaultSkybox;
+    }
+
+    public void DumpAllTablesAndSendByMail(string recipient)
+    {
+        if (DEBUGdisableЬailSending)
+        {
+            Debug.Log("Sending mails disabled");
+            return;
+
+        }
+        char delimeter = ',';
+        char lineSeparator = '\n';
+        var absPath = Application.persistentDataPath + "/" + "username" + "_all_labs_results.csv";
+        Debug.Log("dumping table " + absPath);
+        var file = File.Open(absPath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+        file.SetLength(0); // flush
+        var writer = new StreamWriter(file);
+
+        foreach (var lab in labs)
+        {
+            writer.Write(lab.labName);
+            writer.Write(delimeter);
+            writer.Write(lineSeparator);
+
+            foreach (var task in lab.tasks)
+            {
+                writer.Write(lab.labName);
+                writer.Write(delimeter);
+                writer.Write(lineSeparator);
+
+                var taskTable = task.table;
+                var rowCount = taskTable.GetMaxListCount();
+                foreach (var key in taskTable.orderedKeys)
+                {
+                    writer.Write(key);
+                    writer.Write(delimeter);
+                }
+                writer.Write(lineSeparator);
+                for (int i = 0; i < rowCount; ++i)
+                {
+                    for (int j = 0; j < taskTable.rawTable.Count; ++j)
+                    {
+                        if (taskTable.rawTable[j].Count > i)
+                            writer.Write(taskTable.rawTable[j][i]);
+                        else
+                            writer.Write("");
+                        writer.Write(delimeter);
+                    }
+                    writer.Write(lineSeparator);
+                }
+            }
+        }
+        writer.Close();
+        mailSender.SendEmail(recipient, absPath);
     }
 
 }
