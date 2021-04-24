@@ -19,27 +19,28 @@ public class LabTasksManager : MonoBehaviour
     public void Start()
     {
         Debug.Assert(tasks.Count > 0);
-        UpdateTableUIs();
+        UpdateUI();
     }
 
-    void AddMetric(string key, float value)
+    public void AddMetric(string key, float value)
     {
         GetCurrentTask().table.AddMetric(key, value);
-        UpdateTableUIs();
+        UpdateUI();
     }
 
-    // TODO: оно здесь не должно быть наверное
     public void ToggleDone()
     {
-        GetCurrentTask().done = !GetCurrentTask().done;
-        UpdateTableUIs();
-        UpdateOverviewUI();
+        var task = GetCurrentTask();
+        task.done = !task.done;
+        UpdateUI();
     }
 
     public void ResetResults()
     {
-        GetCurrentTask().table.ClearData();
-        UpdateTableUIs();
+        var task = GetCurrentTask();
+        task.done = false;
+        task.table.ClearData();
+        UpdateUI();
     }
 
     public void SwitchToNextTask()
@@ -60,9 +61,16 @@ public class LabTasksManager : MonoBehaviour
     public void SetCurrentTaskIndex(int index)
     {
         currentTaskIndex = index;
-        UpdateTableUIs();
-        taskUI.SetTask(GetCurrentTask());
+        UpdateUI();
     }
+
+    public void UpdateUI()
+    {
+        UpdateTableUIs();
+        UpdateTaskUI();
+        UpdateOverviewUI();
+    }
+
     public int GetCurrentTaskIndex()
     {
         return currentTaskIndex;
@@ -86,6 +94,11 @@ public class LabTasksManager : MonoBehaviour
     void UpdateOverviewUI()
     {
         overviewUI.UpdateUI();
+    }
+
+    void UpdateTaskUI()
+    {
+        taskUI.UpdateUI();
     }
 
     // GARBAGE BELOW

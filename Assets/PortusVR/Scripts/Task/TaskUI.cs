@@ -5,26 +5,17 @@ using UnityEngine.UI;
 
 public class TaskUI : MonoBehaviour
 {
-    LabTask task;
+    public LabTasksManager taskManager;
+
     public Toggle donenessToggle;
     public Text name;
     public Text description;
 
-    public void SetTask(LabTask task)
-    {
-        this.task = task;
-        donenessToggle.isOn = task.done;
-    }
-
-    public void ToggleDone()
-    {
-        task.done = !task.done;
-        UpdateUI();
-    }
-
     public void UpdateUI()
     {
+        var task = taskManager.GetCurrentTask();
+        name.text = task.name;
+        description.text = task.description;
         donenessToggle.isOn = task.done;
-
     }
 }

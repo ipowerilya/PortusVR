@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084742cb9926cf547abc9cc755679826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskManager: {fileID: 2856557662488077852}
   donenessToggle: {fileID: 739332098784578276}
   name: {fileID: 4649812391442612391}
   description: {fileID: 5098944479395460611}
@@ -764,11 +765,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   table: {fileID: 2856557662768675720}
-  taskDescription: This is task A
-  taskName: Task B
-  internalTaskName: test-task-b
-  internalLabName: 999_test
+  name: Task B
+  description: 'This is the task B This is the task B This is the task B This is
+    the task B This is the task B This is the task B This is the task B This is the
+    task B This is the task B '
   done: 0
+  internalName: task_b
+  internalLabName: 999_test
 --- !u!114 &2856557662768675720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,11 +911,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   table: {fileID: 2856557663004565492}
-  taskDescription: This is task A
-  taskName: Task A
-  internalTaskName: test-task-a
-  internalLabName: 999_test
+  name: Task A
+  description: 'This is the task A This is the task A This is the task A This is
+    the task A This is the task A This is the task A This is the task A This is the
+    task A '
   done: 0
+  internalName: task_a
+  internalLabName: 999_test
 --- !u!114 &2856557663004565492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2147,7 +2152,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3759429592500678554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2856557662488077852}
+        m_MethodName: ResetResults
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &6632951987971161642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2184,6 +2200,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: -66.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961234372249188059, guid: 7b4662073d653b648a4a7fcae70ab421,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961234372249188059, guid: 7b4662073d653b648a4a7fcae70ab421,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961234372249188059, guid: 7b4662073d653b648a4a7fcae70ab421,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961234372249188059, guid: 7b4662073d653b648a4a7fcae70ab421,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2856557662488077852}
+    - target: {fileID: 7961234372249188059, guid: 7b4662073d653b648a4a7fcae70ab421,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleDone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961234372249188059, guid: 7b4662073d653b648a4a7fcae70ab421,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8958350392480844136, guid: 7b4662073d653b648a4a7fcae70ab421,
         type: 3}

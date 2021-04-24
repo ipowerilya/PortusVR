@@ -10,11 +10,6 @@ public class TaskOverviewUI : MonoBehaviour
     public VerticalLayoutGroup group;
     public GameObject buttonPrefab;
 
-    public void Start()
-    {
-        UpdateUI();
-    }
-
     public void ClearUI()
     {
         for (int i = group.transform.childCount - 1; i >= 0; --i)
@@ -31,7 +26,7 @@ public class TaskOverviewUI : MonoBehaviour
         {
             var task = tasks[i];
             var obj = Instantiate(buttonPrefab, group.transform);
-            obj.GetComponentInChildren<Text>().text = task.taskName;
+            obj.GetComponentInChildren<Text>().text = task.name;
             obj.GetComponentInChildren<Toggle>().isOn = task.done;
             var button = obj.GetComponentInChildren<Button>();
 

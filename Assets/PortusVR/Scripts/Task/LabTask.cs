@@ -4,11 +4,13 @@ using UnityEngine;
 public class LabTask : MonoBehaviour
 {
     public MetricTable table;
-    public string taskDescription;
-    public string taskName;
-    public string internalTaskName;
-    public string internalLabName;
+    
+    public string name;
+    public string description;
     public bool done = false;
+    
+    public string internalName;
+    public string internalLabName;
 
     public void SaveResultsToFile()
     {
