@@ -5,38 +5,35 @@ using UnityEngine.UI;
 
 public class LabMenuUI : MonoBehaviour
 {
-    public HubOverview hubOverview;
-
+    List<Lab> labs;
+    
+    public VerticalLayoutGroup group;
     public GameObject buttonPrefab;
-    public float buttonSpacing = 20f;
-    public float buttonOffset = 0;
+    public delegate void OnCurLabIndexChange(int x);
+    public OnCurLabIndexChange LabCallback;
 
-    public void Start()
+    public void SetLabs(List<Lab> labs)
     {
-        var canvas = GetComponent<Canvas>();
-        var labs = hubOverview.labs;
-        
-        if (labs.Count > 0)
-        {
-            hubOverview.SetCurrentLabIndex(0);
-        }
+        this.labs = labs;
+    }
+
+    public void UpdateUI(int selectedLab)
+    {
+        ClearUI();
 
         for (int i = 0; i < labs.Count; i++)
         {
-            var obj = Instantiate(
+            var button = Instantiate(
                 buttonPrefab,
-                canvas.transform
-            );
-            var rect = obj.GetComponent<RectTransform>();
-            rect.localPosition = Vector3.down*(buttonOffset + (rect.rect.height + buttonSpacing)*i);
+                group.transform
+            ).GetComponent<Button>();
 
-            var button = obj.GetComponent<Button>();
             var labIndex = i;
             button.onClick.AddListener(() => {
-                hubOverview.SetCurrentLabIndex(labIndex);
+                LabCallback(labIndex);
             });
 
-            if (i == hubOverview.GetCurrentLabIndex())
+            if (i == selectedLab)
             {
                 var colorBlock = button.colors;
                 colorBlock.normalColor = Color.green;
@@ -45,7 +42,15 @@ public class LabMenuUI : MonoBehaviour
             }
 
             var text = button.GetComponentInChildren<Text>();
-            text.text = hubOverview.labs[i].labName;
+            text.text = labs[i].labName;
+        }
+    }
+
+    void ClearUI()
+    {
+        for (int i = group.transform.childCount - 1; i >= 0; --i)
+        {
+            GameObject.Destroy(group.transform.GetChild(i).gameObject);
         }
     }
 }

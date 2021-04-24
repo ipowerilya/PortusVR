@@ -15,16 +15,19 @@ public class HubOverview : MonoBehaviour
 
 
     int currentLabIndex = 0;
-    bool LabSceneIsLoaded = false;
+    string loadedScene = null;
 
 
     private void Start()
     {
-        
         foreach (var lab in labs)
         {
             lab.InitTasks();
         }
+        labMenuUI.SetLabs(labs);
+        labMenuUI.LabCallback = (int labIndex) => { SetCurrentLabIndex(labIndex); };
+        labMenuUI.UpdateUI(currentLabIndex);
+        UpdateUI();
         RenderSettings.skybox = DefaultSkybox;
     }
 
@@ -47,12 +50,13 @@ public class HubOverview : MonoBehaviour
     public void UpdateUI()
     {
         labOverviewUI.SetLab(GetCurrentLab());
+        labMenuUI.UpdateUI(currentLabIndex);
     }
 
     // TODO set scene to lab
     public void LoadScene()
     {
-        if (!disableSceneLoading && !LabSceneIsLoaded)
+        if (!disableSceneLoading && loadedScene == null)
         {
             StartCoroutine(AsyncLoadScene());
         }
@@ -61,7 +65,7 @@ public class HubOverview : MonoBehaviour
     public void UnloadScene()
     {
         // TODO change player position check  to collider check
-        if (!disableSceneLoading && LabSceneIsLoaded && playerTransform.position.z < 0) 
+        if (!disableSceneLoading && loadedScene != null && playerTransform.position.z < 0) 
         {
             StartCoroutine(AsyncUnloadScene());
         }
@@ -69,26 +73,27 @@ public class HubOverview : MonoBehaviour
 
     IEnumerator AsyncLoadScene()
     {
-        AsyncOperation task = SceneManager.LoadSceneAsync(GetCurrentLab().internalName, LoadSceneMode.Additive);
+        var sceneName = GetCurrentLab().internalName;
+        AsyncOperation task = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         while (!task.isDone)
         {
             yield return null;
         }
-        //RenderSettings.skybox = GetCurrentLab().associatedSkybox;
-        LabSceneIsLoaded = true;
+        loadedScene = sceneName;
+        RenderSettings.skybox = GetCurrentLab().associatedSkybox;
         GameObject.FindGameObjectsWithTag("TaskManager")[0].GetComponent<LabTasksManager>().SetLab(GetCurrentLab());
     }
 
     // TODO delete elements from lab (gaged objects)
     IEnumerator AsyncUnloadScene()
     {
-        AsyncOperation task = SceneManager.UnloadSceneAsync(GetCurrentLab().internalName);
+        AsyncOperation task = SceneManager.UnloadSceneAsync(loadedScene);
         while (!task.isDone)
         {
             yield return null;
         }
-        //RenderSettings.skybox = DefaultSkybox;
-        LabSceneIsLoaded = false;
+        loadedScene = null;
+        RenderSettings.skybox = DefaultSkybox;
     }
 
 }
