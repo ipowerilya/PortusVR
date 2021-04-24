@@ -972,6 +972,7 @@ GameObject:
   - component: {fileID: 1624557271}
   - component: {fileID: 1624557272}
   - component: {fileID: 1624557273}
+  - component: {fileID: 1624557274}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1078,6 +1079,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1624557274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624557270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41525eb3c3daf734f96420b945ed2842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Skybox:
+  - {fileID: 2100000, guid: 80fa4f34db87aad4d93c45188b19bfd6, type: 2}
 --- !u!1 &1978368965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1372,7 @@ PrefabInstance:
     - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
         type: 3}
       propertyPath: onDoorOpen.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
         type: 3}
@@ -1412,6 +1427,31 @@ PrefabInstance:
     - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
         type: 3}
       propertyPath: onDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
+        type: 3}
+      propertyPath: onDoorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
+        type: 3}
+      propertyPath: onDoorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
+        type: 3}
+      propertyPath: onDoorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1624557274}
+    - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
+        type: 3}
+      propertyPath: onDoorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ChangeSkybox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
+        type: 3}
+      propertyPath: onDoorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
