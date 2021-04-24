@@ -1,14 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TaskOverviewUI : MonoBehaviour
 {
-    public LabTasksManager taskManager;
+    public Lab lab;
 
     public VerticalLayoutGroup group;
     public GameObject buttonPrefab;
+    public delegate void OnCurTaskIndexChange(int x);
+    public OnCurTaskIndexChange TaskCallback;
 
     public void ClearUI()
     {
@@ -21,7 +24,7 @@ public class TaskOverviewUI : MonoBehaviour
     public void UpdateUI()
     {
         ClearUI();
-        var tasks = taskManager.tasks;
+        var tasks = lab.tasks;
         for (int i = 0; i < tasks.Count; ++i)
         {
             var task = tasks[i];
@@ -32,7 +35,7 @@ public class TaskOverviewUI : MonoBehaviour
 
             var currentTaskIndex = i;
             button.onClick.AddListener(() => {
-                taskManager.SetCurrentTaskIndex(currentTaskIndex);
+                TaskCallback(currentTaskIndex);
             });
             
             // добавить цвет выделения

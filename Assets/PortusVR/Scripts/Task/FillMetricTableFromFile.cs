@@ -9,7 +9,7 @@ public class FillMetricTableFromFile : MonoBehaviour
 
     public MetricTable table;
 
-    public void GetLab(string LabName)
+    public bool GetTable(string labName, string taskName, MetricTable output_table)
     {
         string[] fileEntries = Directory.GetFiles(Application.persistentDataPath + "/");
         foreach (string file in fileEntries)
@@ -28,24 +28,26 @@ public class FillMetricTableFromFile : MonoBehaviour
             {
                 Debug.Log("unable to parse file name " + file);
             }*/
-            table.ClearDataAndKeys();
-            if (file.Contains(LabName) && file.Contains("username")) {
-                ReadData(file);
+            if (file.Contains(labName) && file.Contains(taskName) && file.Contains("username")) {
+                output_table.ClearDataAndKeys();
+                ReadData(file, output_table);
+                return true;
             }
         }
+        return false;
     }
-    bool ReadData(string file_path)
+    bool ReadData(string file_path, MetricTable output_table)
     {
         string[] readText = File.ReadAllLines(file_path);
-        InitTable(readText[0]);
+        InitTable(readText[0], output_table);
         for (int i = 1; i < readText.Length; ++i)
         {
             Debug.Log("Line " + i + ": " + readText[i]);
-            ReadCsvLine(readText[i]);
+            ReadCsvLine(readText[i], output_table);
         }
         return true;
     }
-    void ReadCsvLine(string csvLine)
+    void ReadCsvLine(string csvLine, MetricTable output_table)
     {
         string[] values = csvLine.Split(',');
         for(int i = 0; i < values.Length; ++i)
@@ -54,7 +56,7 @@ public class FillMetricTableFromFile : MonoBehaviour
                 table.rawTable[i].Add(Convert.ToSingle(values[i]));
         }
     }
-    void InitTable(string csvLine)
+    void InitTable(string csvLine, MetricTable output_table)
     {
         Debug.Log("Header: " + csvLine);
         string[] values = csvLine.Split(',');

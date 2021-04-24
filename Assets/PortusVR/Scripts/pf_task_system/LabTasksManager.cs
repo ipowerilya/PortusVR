@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LabTasksManager : MonoBehaviour
 {
-    public List<LabTask> tasks; // fill in order of execution
+    public Lab lab; 
     int currentTaskIndex = 0;
 
     public List<TableUI> tableUIs;
@@ -13,12 +13,19 @@ public class LabTasksManager : MonoBehaviour
 
     public LabTask GetCurrentTask()
     {
-        return tasks[currentTaskIndex];
+        return GetTasks()[currentTaskIndex];
     }
 
     public void Start()
     {
-        Debug.Assert(tasks.Count > 0);
+        overviewUI.TaskCallback = SetCurrentTaskIndex;
+    }
+
+    public void SetLab(Lab lab)
+    {
+        overviewUI.lab = lab;
+        this.lab = lab;
+        Debug.Assert(GetTasks().Count > 0);
         UpdateUI();
     }
 
@@ -45,7 +52,7 @@ public class LabTasksManager : MonoBehaviour
 
     public void SwitchToNextTask()
     {
-        if (currentTaskIndex + 1 < tasks.Count)
+        if (currentTaskIndex + 1 < GetTasks().Count)
         {
             SetCurrentTaskIndex(++currentTaskIndex);
         }
@@ -78,7 +85,7 @@ public class LabTasksManager : MonoBehaviour
 
     void SaveResultsToFiles()
     {
-        foreach (var task in tasks)
+        foreach (var task in GetTasks())
             task.SaveResultsToFile();
     }
 
@@ -101,15 +108,8 @@ public class LabTasksManager : MonoBehaviour
         taskUI.UpdateUI();
     }
 
-    // GARBAGE BELOW
-    public void record()
+    public List<LabTask> GetTasks()
     {
-        AddMetric("A", Random.Range(0, 1000));
-        AddMetric("B", Random.Range(0, 1000));
-    }
-
-    public void RecordByTag(string TagName)
-    {
-        AddMetric(TagName, Random.Range(0, 1000));
+        return lab.tasks;
     }
 }

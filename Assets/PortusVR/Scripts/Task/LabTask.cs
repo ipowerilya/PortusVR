@@ -5,12 +5,19 @@ public class LabTask : MonoBehaviour
 {
     public MetricTable table;
     
-    public string name;
+    public string taskName;
     public string description;
     public bool done = false;
     
-    public string internalName;
-    public string internalLabName;
+    public string internalName; 
+    string internalLabName;
+
+    public void Initialize(string internalLabName)
+    {
+        this.internalLabName = internalLabName;
+        FillMetricTableFromFile tableFiller = new FillMetricTableFromFile();
+        tableFiller.GetTable(internalLabName, internalName, table);
+    }
 
     public void SaveResultsToFile()
     {

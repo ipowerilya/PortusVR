@@ -8,13 +8,13 @@ public class TaskUI : MonoBehaviour
     public LabTasksManager taskManager;
 
     public Toggle donenessToggle;
-    public Text name;
+    public Text taskName;
     public Text description;
 
     public void UpdateUI()
     {
         var task = taskManager.GetCurrentTask();
-        name.text = task.name;
+        taskName.text = task.taskName;
         description.text = task.description;
         donenessToggle.isOn = task.done;
     }

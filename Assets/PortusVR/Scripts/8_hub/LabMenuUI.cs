@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LabMenuUI : MonoBehaviour
 {
-    public LabMenu labMenu;
+    public HubOverview hubOverview;
 
     public GameObject buttonPrefab;
     public float buttonSpacing = 20f;
@@ -22,11 +22,11 @@ public class LabMenuUI : MonoBehaviour
     public void Start()
     {
         var canvas = GetComponent<Canvas>();
-        var labs = labMenu.labs;
+        var labs = hubOverview.labs;
         
         if (labs.Count > 0)
         {
-            labMenu.SelectLab(labs[0]);
+            hubOverview.SetCurrentLabIndex(0);
         }
 
         for (int i = 0; i < labs.Count; i++)
@@ -39,13 +39,13 @@ public class LabMenuUI : MonoBehaviour
             rect.localPosition = Vector3.down*(buttonOffset + (rect.rect.height + buttonSpacing)*i);
 
             var button = obj.GetComponent<Button>();
-            var lab = labs[i];
+            var labIndex = i;
             button.onClick.AddListener(() => {
-                labMenu.SelectLab(lab);
+                hubOverview.SetCurrentLabIndex(labIndex);
             });
             
             var text = button.GetComponentInChildren<Text>();
-            text.text = labs[i].Name;
+            text.text = hubOverview.labs[i].labName;
         }
     }
 }
