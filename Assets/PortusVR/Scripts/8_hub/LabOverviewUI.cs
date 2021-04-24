@@ -21,7 +21,6 @@ public class LabOverviewUI : MonoBehaviour
         currentTaskIndex = 0;
         this.lab = lab;
         tasksOverview.lab = lab;
-        tasksOverview.UpdateUI();
         UpdateUI();
     }
 
@@ -36,5 +35,6 @@ public class LabOverviewUI : MonoBehaviour
         labUi.SetLab(lab);
         resultsUi.SetTable(lab.tasks[currentTaskIndex].table);
         resultsUi.UpdateTable();
+        tasksOverview.UpdateUI(currentTaskIndex);
     }
 }

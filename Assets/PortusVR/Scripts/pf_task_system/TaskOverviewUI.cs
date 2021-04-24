@@ -21,7 +21,7 @@ public class TaskOverviewUI : MonoBehaviour
         }
     }
 
-    public void UpdateUI()
+    public void UpdateUI(int selectedTask)
     {
         ClearUI();
         var tasks = lab.tasks;
@@ -37,9 +37,14 @@ public class TaskOverviewUI : MonoBehaviour
             button.onClick.AddListener(() => {
                 TaskCallback(currentTaskIndex);
             });
-            
-            // добавить цвет выделения
-            // bool selected = i == taskManager.GetCurrentTaskIndex();
+
+            if (i == selectedTask)
+            {
+                var colorBlock = button.colors;
+                colorBlock.normalColor = Color.green;
+                colorBlock.highlightedColor = Color.green;
+                button.colors = colorBlock;
+            }
         }
     }
 }

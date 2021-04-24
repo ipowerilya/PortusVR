@@ -11,14 +11,6 @@ public class LabMenuUI : MonoBehaviour
     public float buttonSpacing = 20f;
     public float buttonOffset = 0;
 
-    public Color buttonColorNormal = Color.white;
-    public Color buttonColorHighlight = Color.green;
-
-    Button selectedButton;
-
-    ColorBlock normalColorBlock;
-    ColorBlock highlightColorBlock;
-
     public void Start()
     {
         var canvas = GetComponent<Canvas>();
@@ -43,7 +35,15 @@ public class LabMenuUI : MonoBehaviour
             button.onClick.AddListener(() => {
                 hubOverview.SetCurrentLabIndex(labIndex);
             });
-            
+
+            if (i == hubOverview.GetCurrentLabIndex())
+            {
+                var colorBlock = button.colors;
+                colorBlock.normalColor = Color.green;
+                colorBlock.highlightedColor = Color.green;
+                button.colors = colorBlock;
+            }
+
             var text = button.GetComponentInChildren<Text>();
             text.text = hubOverview.labs[i].labName;
         }

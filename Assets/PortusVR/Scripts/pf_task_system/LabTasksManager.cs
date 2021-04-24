@@ -100,7 +100,7 @@ public class LabTasksManager : MonoBehaviour
 
     void UpdateOverviewUI()
     {
-        overviewUI.UpdateUI();
+        overviewUI.UpdateUI(currentTaskIndex);
     }
 
     void UpdateTaskUI()

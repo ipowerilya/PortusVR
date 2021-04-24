@@ -39,6 +39,11 @@ public class HubOverview : MonoBehaviour
         UpdateUI();
     }
 
+    public int GetCurrentLabIndex()
+    {
+        return currentLabIndex;
+    }
+
     public void UpdateUI()
     {
         labOverviewUI.SetLab(GetCurrentLab());
@@ -71,8 +76,7 @@ public class HubOverview : MonoBehaviour
         }
         //RenderSettings.skybox = GetCurrentLab().associatedSkybox;
         LabSceneIsLoaded = true;
-        var taskManager = GameObject.FindGameObjectsWithTag("TaskManager")[0].GetComponent<LabTasksManager>();
-        taskManager.SetLab(GetCurrentLab());
+        GameObject.FindGameObjectsWithTag("TaskManager")[0].GetComponent<LabTasksManager>().SetLab(GetCurrentLab());
     }
 
     // TODO delete elements from lab (gaged objects)
