@@ -11848,7 +11848,7 @@ GameObject:
   - component: {fileID: 1469459240015868699}
   - component: {fileID: 200318522426567005}
   - component: {fileID: 1469459240015951268}
-  - component: {fileID: 7571026246777526065}
+  - component: {fileID: 721031815236866679}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -11959,7 +11959,7 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
---- !u!114 &7571026246777526065
+--- !u!114 &721031815236866679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11971,8 +11971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac09bf699d4234448aa42c086c9f964c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOnSceneLoaded: 0
-  FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  FadeOnSceneLoaded: 1
+  FadeColor: {r: 0, g: 0, b: 0, a: 0.9882353}
   FadeSpeed: 6
 --- !u!1 &1469459240015951279
 GameObject:
@@ -29187,7 +29187,7 @@ GameObject:
   - component: {fileID: 3555645976420289404}
   - component: {fileID: 3555645976420289405}
   - component: {fileID: 3555645976420289402}
-  - component: {fileID: 2834546779554256598}
+  - component: {fileID: 3555645976420289403}
   m_Layer: 0
   m_Name: CenterEyeAnchor (1)
   m_TagString: MainCamera
@@ -29290,7 +29290,7 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
---- !u!114 &2834546779554256598
+--- !u!114 &3555645976420289403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29302,8 +29302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac09bf699d4234448aa42c086c9f964c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOnSceneLoaded: 0
-  FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  FadeOnSceneLoaded: 1
+  FadeColor: {r: 0, g: 0, b: 0, a: 0.9882353}
   FadeSpeed: 6
 --- !u!1 &3555645976467345322
 GameObject:
