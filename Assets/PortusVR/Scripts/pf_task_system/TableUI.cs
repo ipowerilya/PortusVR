@@ -15,7 +15,7 @@ public class TableUI : MonoBehaviour
 
     MetricTable table;
 
-    public void Start()
+    public void Awake()
     {
         rowGroup = GetComponentInChildren<VerticalLayoutGroup>();
     }

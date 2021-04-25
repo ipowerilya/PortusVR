@@ -14,7 +14,7 @@ public class HubOverview : MonoBehaviour
     public Transform playerTransform; // for scene loading
     public BNG.ScreenFader playerScreenFader; // for screen fading during scene preloading (should have alpha 255 initially)
 
-    int currentLabIndex = 0;
+    public int currentLabIndex = 0;
     string loadedScene = null;
 
 
@@ -27,6 +27,7 @@ public class HubOverview : MonoBehaviour
         else
         {
             playerScreenFader.SetFadeLevel(0f);
+            UpdateTaskManager();
         }
         foreach (var lab in labs)
         {
@@ -79,6 +80,11 @@ public class HubOverview : MonoBehaviour
         }
     }
 
+    void UpdateTaskManager()
+    {
+        GameObject.FindGameObjectsWithTag("TaskManager")[0].GetComponent<LabTasksManager>().SetLab(GetCurrentLab());
+    }
+
     IEnumerator AsyncLoadScene()
     {
         var sceneName = GetCurrentLab().internalName;
@@ -89,7 +95,7 @@ public class HubOverview : MonoBehaviour
         }
         loadedScene = sceneName;
         RenderSettings.skybox = GetCurrentLab().associatedSkybox;
-        GameObject.FindGameObjectsWithTag("TaskManager")[0].GetComponent<LabTasksManager>().SetLab(GetCurrentLab());
+        UpdateTaskManager();
     }
 
     // TODO delete elements from lab (gaged objects)
