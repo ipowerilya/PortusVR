@@ -726,6 +726,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HubOverview
       objectReference: {fileID: 0}
+    - target: {fileID: 6810261753521468561, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6810261753521468567, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1110,22 +1115,22 @@ PrefabInstance:
     - target: {fileID: 1469459240056667085, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1469459240056667085, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.09133303
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1469459240056667085, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1469459240056667085, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9958204
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1469459240056667085, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
@@ -1140,7 +1145,7 @@ PrefabInstance:
     - target: {fileID: 1469459240056667085, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 370.481
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1469459240056667085, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
@@ -1152,6 +1157,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: custom XR Rig Advanced
       objectReference: {fileID: 0}
+    - target: {fileID: 2834546779554256598, guid: e049cc96888297445990d08a62561d3f,
+        type: 3}
+      propertyPath: FadeOnSceneLoaded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3555645976420289404, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
       propertyPath: m_BackGroundColor.r
@@ -1210,6 +1220,11 @@ PrefabInstance:
     - target: {fileID: 3555645977180262490, guid: e049cc96888297445990d08a62561d3f,
         type: 3}
       propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571026246777526065, guid: e049cc96888297445990d08a62561d3f,
+        type: 3}
+      propertyPath: FadeOnSceneLoaded
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

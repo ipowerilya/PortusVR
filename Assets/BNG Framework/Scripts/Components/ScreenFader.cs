@@ -47,6 +47,7 @@ namespace BNG {
                 fadeObjectRect.anchorMax = new Vector2(0, 1);
                 fadeObjectRect.pivot = new Vector2(0.5f, 0.5f);
                 fadeObjectRect.sizeDelta = new Vector2(0.1f, 0.1f);
+                fadeObjectRect.localRotation = Quaternion.identity;
             }
         }
 
