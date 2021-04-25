@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class FillMetricTableFromFile : MonoBehaviour
 {
-
-    public MetricTable table;
-
-    public bool GetTable(string labName, string taskName, MetricTable output_table)
+    static public bool GetTable(string labName, string taskName, MetricTable output_table)
     {
         string[] fileEntries = Directory.GetFiles(Application.persistentDataPath + "/");
         foreach (string file in fileEntries)
@@ -36,7 +33,7 @@ public class FillMetricTableFromFile : MonoBehaviour
         }
         return false;
     }
-    bool ReadData(string file_path, MetricTable output_table)
+    static bool ReadData(string file_path, MetricTable output_table)
     {
         string[] readText = File.ReadAllLines(file_path);
         InitTable(readText[0], output_table);
@@ -47,24 +44,24 @@ public class FillMetricTableFromFile : MonoBehaviour
         }
         return true;
     }
-    void ReadCsvLine(string csvLine, MetricTable output_table)
+    static void ReadCsvLine(string csvLine, MetricTable output_table)
     {
         string[] values = csvLine.Split(',');
         for(int i = 0; i < values.Length; ++i)
         {
             if (values[i] != "")
-                table.rawTable[i].Add(Convert.ToSingle(values[i]));
+                output_table.rawTable[i].Add(Convert.ToSingle(values[i]));
         }
     }
-    void InitTable(string csvLine, MetricTable output_table)
+    static void InitTable(string csvLine, MetricTable output_table)
     {
         Debug.Log("Header: " + csvLine);
         string[] values = csvLine.Split(',');
         foreach (string value in values)
         {
             if (value != "")
-                table.orderedKeys.Add(value);
+                output_table.orderedKeys.Add(value);
         }
-        table.Awake();
+        output_table.Awake();
     }
 }

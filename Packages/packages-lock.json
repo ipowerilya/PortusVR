@@ -90,11 +90,14 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.oculus.android": {
-      "version": "2.38.6",
+    "com.unity.xr.oculus": {
+      "version": "1.5.1",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.xr.management": "3.2.13",
+        "com.unity.ugui": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {

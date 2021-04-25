@@ -15,8 +15,7 @@ public class LabTask : MonoBehaviour
     public void Initialize(string internalLabName)
     {
         this.internalLabName = internalLabName;
-        FillMetricTableFromFile tableFiller = new FillMetricTableFromFile();
-        tableFiller.GetTable(internalLabName, internalName, table);
+        FillMetricTableFromFile.GetTable(internalLabName, internalName, table);
     }
 
     public void SaveResultsToFile()
