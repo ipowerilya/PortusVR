@@ -20,6 +20,7 @@ public class HubOverview : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(AsyncPreloadScenes());
         foreach (var lab in labs)
         {
             lab.InitTasks();
@@ -96,4 +97,20 @@ public class HubOverview : MonoBehaviour
         RenderSettings.skybox = DefaultSkybox;
     }
 
+    IEnumerator AsyncPreloadScenes()
+    {
+        Debug.Log("Starting scene preloading");
+        foreach (var lab in labs)
+        {
+            var sceneName = lab.internalName;
+            AsyncOperation loadTask = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            Debug.Log("Loading scene " + lab.internalName);
+            while (!loadTask.isDone) yield return null;
+
+            Debug.Log("Unloading scene " + lab.internalName);
+            AsyncOperation unloadTask = SceneManager.UnloadSceneAsync(sceneName);
+            while (!unloadTask.isDone) yield return null;
+        }
+        Debug.Log("Scene preloading finished");
+    }
 }
