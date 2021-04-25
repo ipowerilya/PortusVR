@@ -20,7 +20,14 @@ public class HubOverview : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(AsyncPreloadScenes());
+        if (!disableSceneLoading)
+        {
+            StartCoroutine(AsyncPreloadScenes());
+        }
+        else
+        {
+            playerScreenFader.SetFadeLevel(0f);
+        }
         foreach (var lab in labs)
         {
             lab.InitTasks();
