@@ -35,7 +35,7 @@ namespace BNG {
                 fadeObject.transform.name = "ScreenFader";
 
                 fadeCanvas = fadeObject.AddComponent<Canvas>();
-                fadeCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+                fadeCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
                 canvasGroup = fadeObject.AddComponent<CanvasGroup>();
 
