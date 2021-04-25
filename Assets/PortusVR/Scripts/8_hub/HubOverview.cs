@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class HubOverview : MonoBehaviour
@@ -10,10 +8,8 @@ public class HubOverview : MonoBehaviour
     public List<Lab> labs;
     public LabOverviewUI labOverviewUI;
     public LabMenuUI labMenuUI;
-    public bool DEBUGdisableSceneLoading = false;
-    public bool DEBUGdisableЬailSending = true;
+    public bool disableSceneLoading = false;
     public Material DefaultSkybox;
-    public SendMailByMailMessage mailSender;
 
     public Transform playerTransform; // for scene loading
 
@@ -24,6 +20,7 @@ public class HubOverview : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(AsyncPreloadScenes());
         foreach (var lab in labs)
         {
             lab.InitTasks();
@@ -60,7 +57,7 @@ public class HubOverview : MonoBehaviour
     // TODO set scene to lab
     public void LoadScene()
     {
-        if (!DEBUGdisableSceneLoading && loadedScene == null)
+        if (!disableSceneLoading && loadedScene == null)
         {
             StartCoroutine(AsyncLoadScene());
         }
@@ -69,7 +66,7 @@ public class HubOverview : MonoBehaviour
     public void UnloadScene()
     {
         // TODO change player position check  to collider check
-        if (!DEBUGdisableSceneLoading && loadedScene != null && playerTransform.position.z < 0) 
+        if (!disableSceneLoading && loadedScene != null && playerTransform.position.z < 0) 
         {
             StartCoroutine(AsyncUnloadScene());
         }
@@ -100,58 +97,20 @@ public class HubOverview : MonoBehaviour
         RenderSettings.skybox = DefaultSkybox;
     }
 
-    public void DumpAllTablesAndSendByMail(string recipient)
+    IEnumerator AsyncPreloadScenes()
     {
-        if (DEBUGdisableЬailSending)
-        {
-            Debug.Log("Sending mails disabled");
-            return;
-
-        }
-        char delimeter = ',';
-        char lineSeparator = '\n';
-        var absPath = Application.persistentDataPath + "/" + "username" + "_all_labs_results.csv";
-        Debug.Log("dumping table " + absPath);
-        var file = File.Open(absPath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-        file.SetLength(0); // flush
-        var writer = new StreamWriter(file);
-
+        Debug.Log("Starting scene preloading");
         foreach (var lab in labs)
         {
-            writer.Write(lab.labName);
-            writer.Write(delimeter);
-            writer.Write(lineSeparator);
+            var sceneName = lab.internalName;
+            AsyncOperation loadTask = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            Debug.Log("Loading scene " + lab.internalName);
+            while (!loadTask.isDone) yield return null;
 
-            foreach (var task in lab.tasks)
-            {
-                writer.Write(lab.labName);
-                writer.Write(delimeter);
-                writer.Write(lineSeparator);
-
-                var taskTable = task.table;
-                var rowCount = taskTable.GetMaxListCount();
-                foreach (var key in taskTable.orderedKeys)
-                {
-                    writer.Write(key);
-                    writer.Write(delimeter);
-                }
-                writer.Write(lineSeparator);
-                for (int i = 0; i < rowCount; ++i)
-                {
-                    for (int j = 0; j < taskTable.rawTable.Count; ++j)
-                    {
-                        if (taskTable.rawTable[j].Count > i)
-                            writer.Write(taskTable.rawTable[j][i]);
-                        else
-                            writer.Write("");
-                        writer.Write(delimeter);
-                    }
-                    writer.Write(lineSeparator);
-                }
-            }
+            Debug.Log("Unloading scene " + lab.internalName);
+            AsyncOperation unloadTask = SceneManager.UnloadSceneAsync(sceneName);
+            while (!unloadTask.isDone) yield return null;
         }
-        writer.Close();
-        mailSender.SendEmail(recipient, absPath);
+        Debug.Log("Scene preloading finished");
     }
-
 }

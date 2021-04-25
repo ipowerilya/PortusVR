@@ -14,7 +14,7 @@ public class AngleChanger : MonoBehaviour
     }
     public void SetAngle()
     {
-        platformObject.transform.rotation = Quaternion.Euler(int.Parse(AngleData.text), 0, 0);
+        platformObject.transform.localRotation = Quaternion.Euler(int.Parse(AngleData.text), 0, 0);
     }
     // Update is called once per frame
     void Update()
