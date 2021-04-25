@@ -12,7 +12,7 @@ public class HubOverview : MonoBehaviour
     public Material DefaultSkybox;
 
     public Transform playerTransform; // for scene loading
-
+    public BNG.ScreenFader playerScreenFader; // for screen fading during scene preloading (should have alpha 255 initially)
 
     int currentLabIndex = 0;
     string loadedScene = null;
@@ -112,5 +112,6 @@ public class HubOverview : MonoBehaviour
             while (!unloadTask.isDone) yield return null;
         }
         Debug.Log("Scene preloading finished");
+        playerScreenFader.DoFadeOut();
     }
 }
