@@ -82,11 +82,14 @@ namespace BNG
                     LabelToUpdate.text = val.ToString("n0");
                 }
             }
-            if (LabelToUpdate)
+            else
             {
-                float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
-                val = val / SnapDegrees+1;
-                LabelToUpdate.text = val.ToString("n0");
+                if (LabelToUpdate)
+                {
+                    float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
+                    val = val / SnapDegrees + 1;
+                    LabelToUpdate.text = val.ToString("n0");
+                }
             }
         }
 
