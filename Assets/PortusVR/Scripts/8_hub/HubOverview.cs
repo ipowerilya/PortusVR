@@ -82,7 +82,7 @@ public class HubOverview : MonoBehaviour
 
     void UpdateTaskManager()
     {
-        GameObject.FindGameObjectsWithTag("TaskManager")[0].GetComponent<LabTasksManager>().SetLab(GetCurrentLab());
+        GameObject.FindGameObjectWithTag("TaskManager").GetComponent<LabTasksManager>().SetLab(GetCurrentLab());
     }
 
     IEnumerator AsyncLoadScene()

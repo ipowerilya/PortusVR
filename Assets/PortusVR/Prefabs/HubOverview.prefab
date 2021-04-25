@@ -1966,6 +1966,8 @@ MonoBehaviour:
   disableSceneLoading: 0
   DefaultSkybox: {fileID: 2100000, guid: 80fa4f34db87aad4d93c45188b19bfd6, type: 2}
   playerTransform: {fileID: 0}
+  playerScreenFader: {fileID: 0}
+  currentLabIndex: 0
 --- !u!1 &6810261753659752127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,8 +2013,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   table: {fileID: 6810261753659752125}
-  taskName: 1
-  description: sss
+  taskName: "\u0412\u0435\u0441 \u0433\u0440\u0443\u0437\u043E\u0432"
+  description: "\u0418\u0437\u043C\u0435\u0440\u0438\u0442\u044C \u0434\u0438\u043D\u0430\u043C\u043E\u043C\u0435\u0442\u0440\u043E\u043C
+    \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F \u0441\u0438\u043B \u0442\u044F\u0436\u0435\u0441\u0442\u0438,
+    \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0445 \u043D\u0430
+    \u0433\u0440\u0443\u0437\u044B. \u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
+    \u0433\u0440\u0443\u0437\u044B \u0435\u0434\u0435\u043D\u0438\u0447\u043D\u043E\u0433\u043E
+    \u0432\u0435\u0441\u0430."
   done: 0
   internalName: 
 --- !u!114 &6810261753659752125
@@ -2028,7 +2035,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderedKeys:
-  - A
+  - n
+  - force
 --- !u!1 &6810261754097077923
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class TaskOverviewUI : MonoBehaviour
         {
             var task = tasks[i];
             var obj = Instantiate(buttonPrefab, group.transform);
-            obj.GetComponentInChildren<Text>().text = task.name;
+            obj.GetComponentInChildren<Text>().text = task.taskName;
             obj.GetComponentInChildren<Toggle>().isOn = task.done;
             var button = obj.GetComponentInChildren<Button>();
 

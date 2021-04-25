@@ -4,9 +4,9 @@ using UnityEngine;
 public class LabTask : MonoBehaviour
 {
     public MetricTable table;
-    
-    public string taskName;
-    public string description;
+
+    [TextArea(1, 1)] public string taskName;
+    [TextArea(15, 20)] public string description;
     public bool done = false;
     
     public string internalName; 
