@@ -13,8 +13,9 @@ public class TextController : MonoBehaviour
         text = GetComponent<Text>();
     }
 
-    public void SetFloat(float val)
+    public void SetValue(float val)
     {
-        text.text = val.ToString("000");
+        //text.text = val.ToString("000");
+        text.text = val.ToString("000.00");
     }
 }

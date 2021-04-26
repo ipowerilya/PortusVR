@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class timer : MonoBehaviour
+public class timer : MetricReading
 {
     public Text timer_text;
     bool is_stoped = true;
-
+    public string metric_key;
     private float start_time;
-    private string output;
+    float time_diff;
 
-    LineRenderer line;
+    public override void ReadMetric()
+    {
+        AddMetric(metric_key, time_diff);
+    }
     void Start()
     {
         ResetTime();
@@ -26,6 +29,8 @@ public class timer : MonoBehaviour
     {
         Update();
         is_stoped = true;
+        if (time_diff > 1f)
+            ReadMetric();
     }
 
     public void Continue()
@@ -40,7 +45,7 @@ public class timer : MonoBehaviour
     {
         if (!is_stoped)
         {
-            float time_diff = Time.time - start_time;
+            time_diff = Time.time - start_time;
             string min = ((int)time_diff / 60).ToString();
             string sec = (time_diff % 60).ToString("f2");
             timer_text.text = min + ":" + sec;

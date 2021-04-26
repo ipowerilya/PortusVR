@@ -57,7 +57,7 @@ namespace TMPro.Examples
                 //m_textMeshPro.anchor = AnchorPositions.Center;
                 m_textMeshPro.extraPadding = true;
                 //m_textMeshPro.outlineWidth = 0.25f;
-                //m_textMeshPro.fontSharedMaterial.SetFloat("_OutlineWidth", 0.2f);
+                //m_textMeshPro.fontSharedMaterial.SetValue("_OutlineWidth", 0.2f);
                 //m_textMeshPro.fontSharedMaterial.EnableKeyword("UNDERLAY_ON");
                 //m_textMeshPro.lineJustification = LineJustificationTypes.Center;
                 //m_textMeshPro.enableWordWrapping = true;    

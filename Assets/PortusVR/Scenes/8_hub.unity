@@ -832,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 529061673049522575, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: orderedKeys.Array.data[0]
-      value: "\u0432\u0440\u0435\u043C\u044F (\u0441)"
+      value: "\u0412\u0440\u0435\u043C\u044F (\u0441)"
       objectReference: {fileID: 0}
     - target: {fileID: 1175461769470242690, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
@@ -956,8 +956,7 @@ PrefabInstance:
     - target: {fileID: 6739759928267160834, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: orderedKeys.Array.data[0]
-      value: "\u0412\u0440\u0435\u043C\u044F \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F
-        (\u0441)"
+      value: "\u0412\u0440\u0435\u043C\u044F (\u0441)"
       objectReference: {fileID: 0}
     - target: {fileID: 6810261753521468560, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
