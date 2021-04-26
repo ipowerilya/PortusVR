@@ -25,7 +25,9 @@ public class move_weight : MetricReading
 
     public void UpdatePosition(float percentage)
     {
+        // Debug.Log("percentage " + percentage);
         Vector3 new_position = Vector3.Lerp(point_a.position, point_b.position, percentage / 100f);
+        // Debug.Log("position " + new_position);
         moving_point.transform.position = new_position;
         fixedJoint.connectedAnchor = new_position;
         textController.SetValue(Vector3.Distance(moving_point.transform.position, point_to_count_distance.position));
