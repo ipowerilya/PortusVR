@@ -8,8 +8,11 @@ public class timer : MetricReading
     public Text timer_text;
     bool is_stoped = true;
     public string metric_key;
+    public bool readMetricOnStop = true;
+    public MetricReading time_reciver = null;
     private float start_time;
     float time_diff;
+    float last_added_time;
 
     public override void ReadMetric()
     {
@@ -29,8 +32,14 @@ public class timer : MetricReading
     {
         Update();
         is_stoped = true;
-        if (time_diff > 1f)
-            ReadMetric();
+        if (time_diff > 1f && time_diff != last_added_time)
+        {
+            last_added_time = time_diff;
+            if (readMetricOnStop)
+                ReadMetric();
+            if (time_reciver != null)
+                time_reciver.SetTime(time_diff);
+        }
     }
 
     public void Continue()

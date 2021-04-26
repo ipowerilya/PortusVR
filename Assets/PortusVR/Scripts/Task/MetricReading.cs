@@ -7,6 +7,9 @@ public abstract class MetricReading : MonoBehaviour
 {
     LabTasksManager taskManager;
 
+    //for easy connection with timer
+    List<float> time = new List<float>();
+
     private void Start()
     {
         taskManager = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<LabTasksManager>();
@@ -18,6 +21,27 @@ public abstract class MetricReading : MonoBehaviour
     // Use this for adding metrics
     public void AddMetric(string key, float value)
     {
+        if (taskManager == null)
+        {
+            Debug.Log("task manager not found, attempt to find...");
+            Start();
+        }
         taskManager.AddMetric(key, value);
     }
+
+    public void SetTime (float time)
+    {
+        this.time.Add(time);
+    }
+
+    public float GetLastTimeInterval()
+    {
+        return time[time.Count - 1];
+    }
+
+    public List<float> GetAllTimeIntervals()
+    {
+        return time;
+    }
+
 }

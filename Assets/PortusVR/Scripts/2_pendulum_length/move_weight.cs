@@ -23,6 +23,15 @@ public class move_weight : MetricReading
         AddMetric(metric_key, Vector3.Distance(moving_point.transform.position, point_to_count_distance.position));
     }
 
+    public void ComputeAllMetrics()
+    {
+        var dist = Vector3.Distance(moving_point.transform.position, point_to_count_distance.position);
+        AddMetric("Длинна (М)", dist);
+        AddMetric("Время (с)", GetLastTimeInterval());
+        AddMetric("Период (с)", GetLastTimeInterval() / 30);
+        AddMetric("Частота (Гц)", 30 / GetLastTimeInterval());
+    }
+
     public void UpdatePosition(float percentage)
     {
         // Debug.Log("percentage " + percentage);

@@ -1522,6 +1522,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaskSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 4262547049573188457, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.7598
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262547049573188457, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6932569919589656241, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1894,8 +1904,105 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1350919079355385711, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: readMetricOnStop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350919079355385711, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: time_reciver
+      value: 
+      objectReference: {fileID: 115121204}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 115121204}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReadMetric
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1040098025}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240863508301346700, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337473263407524178, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337473263407524178, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337473263407524178, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337473263407524178, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 115121204}
+    - target: {fileID: 6337473263407524178, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ComputeAllMetrics
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337473263407524178, guid: 67110d0d060b62040bdde34b97c49fcc,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67110d0d060b62040bdde34b97c49fcc, type: 3}
+--- !u!114 &1040098025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1350919079355385711, guid: 67110d0d060b62040bdde34b97c49fcc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1040098024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8df72ac3fc0f14b8b31285bab7446f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1207484509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5340,7 +5447,7 @@ PrefabInstance:
     - target: {fileID: 1595175985333486906, guid: 623b6027ecd99a547b3f28ab737e4443,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.249027
+      value: 6.92
       objectReference: {fileID: 0}
     - target: {fileID: 1595175985333486906, guid: 623b6027ecd99a547b3f28ab737e4443,
         type: 3}
@@ -5385,12 +5492,12 @@ PrefabInstance:
     - target: {fileID: 1595175985333486906, guid: 623b6027ecd99a547b3f28ab737e4443,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.9860387
+      value: -0.499
       objectReference: {fileID: 0}
     - target: {fileID: 1595175985333486906, guid: 623b6027ecd99a547b3f28ab737e4443,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.1242647
+      value: -2.022
       objectReference: {fileID: 0}
     - target: {fileID: 1595175985333486906, guid: 623b6027ecd99a547b3f28ab737e4443,
         type: 3}

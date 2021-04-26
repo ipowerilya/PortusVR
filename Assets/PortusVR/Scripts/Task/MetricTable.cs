@@ -12,12 +12,19 @@ public class MetricTable : MonoBehaviour
     public List<List<float>> rawTable = new List<List<float>>();
     Dictionary<string, int> keyIndex = new Dictionary<string, int>();
 
+    bool initialized = false;
+
     public void Awake()
     {
-        for (int i = 0; i < orderedKeys.Count; ++i)
+        if (!initialized && orderedKeys.Count > 0)
         {
-            rawTable.Add(new List<float>());
-            keyIndex.Add(orderedKeys[i], i);
+            // should be assert orderedKeys.Count > 0
+            for (int i = 0; i < orderedKeys.Count; ++i)
+            {
+                rawTable.Add(new List<float>());
+                keyIndex.Add(orderedKeys[i], i);
+            }
+            initialized = true;
         }
     }
 
@@ -78,6 +85,7 @@ public class MetricTable : MonoBehaviour
         orderedKeys.Clear();
         rawTable.Clear();
         keyIndex.Clear();
+        initialized = false;
     }
 
     public int GetMaxListCount()

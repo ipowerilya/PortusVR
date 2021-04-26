@@ -16,6 +16,7 @@ public class LabTask : MonoBehaviour
     {
         this.internalLabName = internalLabName;
         FillMetricTableFromFile.GetTable(internalLabName, internalName, table);
+        table.Awake();
     }
 
     public void SaveResultsToFile()
