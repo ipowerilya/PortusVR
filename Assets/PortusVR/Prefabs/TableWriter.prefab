@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4510142439263988047}
   - component: {fileID: 5297687126241687536}
   m_Layer: 5
-  m_Name: GameObject (2)
+  m_Name: TableWriter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

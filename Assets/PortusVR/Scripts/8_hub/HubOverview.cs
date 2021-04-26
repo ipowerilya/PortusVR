@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+//tag TaskSystem
 public class HubOverview : MonoBehaviour
 {
     public List<Lab> labs;
@@ -16,10 +18,13 @@ public class HubOverview : MonoBehaviour
 
     public int currentLabIndex = 0;
     string loadedScene = null;
+    Scene hubScene;
+    GameObject taskSystemFromScene = null;
 
 
     private void Start()
     {
+        hubScene = SceneManager.GetActiveScene();
         if (!disableSceneLoading)
         {
             StartCoroutine(AsyncPreloadScenes());
@@ -95,6 +100,8 @@ public class HubOverview : MonoBehaviour
         }
         loadedScene = sceneName;
         RenderSettings.skybox = GetCurrentLab().associatedSkybox;
+        taskSystemFromScene = GameObject.FindGameObjectWithTag("TaskSystem");
+        SceneManager.MoveGameObjectToScene(taskSystemFromScene, hubScene);
         UpdateTaskManager();
     }
 
@@ -107,6 +114,7 @@ public class HubOverview : MonoBehaviour
             yield return null;
         }
         loadedScene = null;
+        Destroy(taskSystemFromScene);
         RenderSettings.skybox = DefaultSkybox;
     }
 
