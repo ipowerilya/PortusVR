@@ -42,11 +42,9 @@ public class LabTasksManager : MonoBehaviour
         UpdateUI();
     }
 
-    public void ResetResults()
+    public void DeleteCurrentLabData()
     {
-        var task = GetCurrentTask();
-        task.done = false;
-        task.table.ClearData();
+        GetCurrentTask().DeleteResults();
         UpdateUI();
     }
 

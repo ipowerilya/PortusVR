@@ -61,6 +61,12 @@ public class HubOverview : MonoBehaviour
         return currentLabIndex;
     }
 
+    public void DeleteCurrentLabData()
+    {
+        GetCurrentLab().DeleteAllTasks();
+        UpdateUI();
+    }
+
     public void UpdateUI()
     {
         labOverviewUI.SetLab(GetCurrentLab());
@@ -108,6 +114,8 @@ public class HubOverview : MonoBehaviour
     // TODO delete elements from lab (gaged objects)
     IEnumerator AsyncUnloadScene()
     {
+        GetCurrentLab().SaveDoneTasks();
+        UpdateUI();
         AsyncOperation task = SceneManager.UnloadSceneAsync(loadedScene);
         while (!task.isDone)
         {

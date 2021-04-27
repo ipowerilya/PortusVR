@@ -115,6 +115,7 @@ MonoBehaviour:
   orderedKeys:
   - B
   - A
+  containsUnsavedData: 0
 --- !u!1 &2856557663004565494
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +182,7 @@ MonoBehaviour:
   orderedKeys:
   - A
   - B
+  containsUnsavedData: 0
 --- !u!1 &2856557663059509625
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +448,7 @@ PrefabInstance:
     - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
         type: 3}
@@ -683,6 +685,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2856557662488077852}
+    - target: {fileID: 8540478942412056711, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeleteCurrentLabData
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 680839cc2785ac3429472fc46455f809, type: 3}
 --- !u!224 &1449843018850739781 stripped

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Globalization;
 using UnityEngine;
 
 
@@ -13,6 +14,7 @@ public class MetricTable : MonoBehaviour
     Dictionary<string, int> keyIndex = new Dictionary<string, int>();
 
     bool initialized = false;
+    public bool containsUnsavedData = false;
 
     public void Awake()
     {
@@ -32,6 +34,7 @@ public class MetricTable : MonoBehaviour
     {
         if (keyIndex.ContainsKey(key))
         {
+            containsUnsavedData = true;
             rawTable[keyIndex[key]].Add(value);
         }
         else
@@ -51,6 +54,7 @@ public class MetricTable : MonoBehaviour
         {
             rawTable[i] = new List<float>();
         }
+        containsUnsavedData = false;
     }
 
     public void ClearDataAndKeys()
@@ -83,7 +87,7 @@ public class MetricTable : MonoBehaviour
             {
 
                 if (rawTable[j].Count > i)
-                    writer.Write(rawTable[j][i]);
+                    writer.Write(rawTable[j][i].ToString(CultureInfo.GetCultureInfo("en-GB"))); //to avoid comas
                 else
                     writer.Write("");
                 writer.Write(delimeter);
@@ -91,6 +95,7 @@ public class MetricTable : MonoBehaviour
             writer.Write(lineSeparator);
         }
         writer.Close();
+        containsUnsavedData = false;
     }
     public bool ReadTableFromFile(string labName, string taskName)
     {
@@ -118,7 +123,7 @@ public class MetricTable : MonoBehaviour
         for (int i = 0; i < values.Length; ++i)
         {
             if (values[i] != "")
-                rawTable[i].Add(Convert.ToSingle(values[i]));
+                rawTable[i].Add(Convert.ToSingle(values[i], CultureInfo.GetCultureInfo("en-GB")));
         }
     }
     void ReadTableHeader(string csvLine)

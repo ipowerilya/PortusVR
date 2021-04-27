@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - A
+  containsUnsavedData: 0
 --- !u!1 &3453041591859758837
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - A
+  containsUnsavedData: 0
 --- !u!1 &6810261753521468561
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +461,7 @@ MonoBehaviour:
   orderedKeys:
   - n
   - force
+  containsUnsavedData: 0
 --- !u!1 &6810261754097077923
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - B
+  containsUnsavedData: 0
 --- !u!1 &6810261754491357073
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - B
+  containsUnsavedData: 0
 --- !u!1 &6810261755032982094
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - A
+  containsUnsavedData: 0
 --- !u!1 &6843303636441968008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - A
+  containsUnsavedData: 0
 --- !u!1 &8318244304288931087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,6 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - A
+  containsUnsavedData: 0
 --- !u!1 &9035370927542910456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - A
+  containsUnsavedData: 0
 --- !u!1001 &677800977369210600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1385,6 +1394,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999119573045778441, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6810261753521468560}
+    - target: {fileID: 7999119573045778441, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeleteCurrentLabData
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94eaa79f81126644db04a4857398d2cc, type: 3}

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using System.IO;
 
 public class LabTask : MonoBehaviour
 {
@@ -15,12 +16,25 @@ public class LabTask : MonoBehaviour
     public void Initialize(string internalLabName)
     {
         this.internalLabName = internalLabName;
-        table.ReadTableFromFile(internalLabName, internalName);
+        if (table.ReadTableFromFile(internalLabName, internalName))
+            done = true;
         table.Awake();
+    }
+
+    string GetResultsFileName()
+    {
+        return "username" + "_" + internalLabName + "_" + internalName + ".csv";
     }
 
     public void SaveResultsToFile()
     {
-        table.DumpToFile("username" + "_" + internalLabName + "_" + internalName + ".csv");
+        table.DumpToFile(GetResultsFileName());
+    }
+
+    public void DeleteResults()
+    {
+        File.Delete(Application.persistentDataPath + "/" + GetResultsFileName());
+        table.ClearData();
+        done = false;
     }
 }

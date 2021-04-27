@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Lab : MonoBehaviour
 {
-
     public string labName;
     public string internalName; //scene should be named the same
     public bool done = false; // TODO move to method
@@ -18,6 +17,33 @@ public class Lab : MonoBehaviour
         foreach (var task in tasks)
         {
             task.Initialize(internalName);
+        }
+    }
+
+    public void SaveTaskByIndex(int index)
+    {
+        tasks[index].SaveResultsToFile();
+    }
+
+    public void DeleteTaskDataByIndex(int index)
+    {
+        tasks[index].DeleteResults();
+    }
+
+    public void DeleteAllTasks()
+    {
+        foreach (var task in tasks)
+        {
+            task.DeleteResults();
+        }
+    }
+
+    public void SaveDoneTasks()
+    {
+        foreach (var task in tasks)
+        {
+            if (task.done && task.table.containsUnsavedData)
+                task.SaveResultsToFile();
         }
     }
 }
