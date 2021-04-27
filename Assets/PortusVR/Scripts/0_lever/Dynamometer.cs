@@ -10,7 +10,6 @@ public class Dynamometer : MonoBehaviour
     {
         var joint = snap.SnappedObjectJoint;
         var magnitude = joint != null ? joint.currentForce.magnitude : 0f;
-        var weight = magnitude / Physics.gravity.magnitude;
-        return weight;
+        return magnitude;
     }
 }
