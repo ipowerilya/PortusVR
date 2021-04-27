@@ -449,7 +449,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 115121202}
-  - component: {fileID: 115121203}
   - component: {fileID: 115121204}
   m_Layer: 0
   m_Name: pendulum
@@ -474,19 +473,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
---- !u!114 &115121203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115121201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2b27819c037e3428176c9edf23fda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moving_part: {fileID: 487615589}
 --- !u!114 &115121204
 MonoBehaviour:
   m_ObjectHideFlags: 0

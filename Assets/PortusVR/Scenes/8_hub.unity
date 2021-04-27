@@ -715,22 +715,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 1600
       objectReference: {fileID: 0}
-    - target: {fileID: 529061673049522575, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 529061673049522575, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.data[1]
-      value: "\u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 \u043E\u0442
-        \u0441\u0440\u0435\u0434\u043D\u0435\u0433\u043E (\u0441)"
-      objectReference: {fileID: 0}
-    - target: {fileID: 529061673049522575, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.data[0]
-      value: "\u0412\u0440\u0435\u043C\u044F (\u0441)"
-      objectReference: {fileID: 0}
     - target: {fileID: 6810261753521468560, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: playerTransform
@@ -810,31 +794,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 6810261755032982092, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6810261755032982092, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.data[1]
-      value: "\u0412\u0440\u0435\u043C\u044F (\u0441)"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6810261755032982092, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.data[2]
-      value: "\u041F\u0435\u0440\u0438\u043E\u0434 (\u0441)"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6810261755032982092, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.data[3]
-      value: "\u0427\u0430\u0441\u0442\u043E\u0442\u0430 (\u0413\u0446)"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6810261755032982092, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: orderedKeys.Array.data[0]
-      value: "\u0414\u043B\u0438\u043D\u043D\u0430 (\u041C)"
       objectReference: {fileID: 0}
     - target: {fileID: 8509586543250294289, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}

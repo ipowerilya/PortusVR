@@ -1005,7 +1005,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderedKeys:
-  - A
+  - "\u0414\u043B\u0438\u043D\u043D\u0430 (\u041C)"
+  - "\u0412\u0440\u0435\u043C\u044F (\u0441)"
+  - "\u041F\u0435\u0440\u0438\u043E\u0434 (\u0441)"
+  - "\u0427\u0430\u0441\u0442\u043E\u0442\u0430 (\u0413\u0446)"
   containsUnsavedData: 0
 --- !u!1 &6843303636441968008
 GameObject:
@@ -1313,7 +1316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderedKeys:
-  - A
+  - "\u0412\u0440\u0435\u043C\u044F (\u0441)"
+  - "\u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 \u043E\u0442 \u0441\u0440\u0435\u0434\u043D\u0435\u0433\u043E
+    (\u0441)"
   containsUnsavedData: 0
 --- !u!1001 &677800977369210600
 PrefabInstance:
