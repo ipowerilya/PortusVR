@@ -371,6 +371,7 @@ MonoBehaviour:
   - "\u0423\u0441\u043A\u043E\u0440\u0435\u043D\u0438\u0435 (\u041C/c*2)"
   - "\u041C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
     (\u041C/\u0441)"
+  containsUnsavedData: 0
 --- !u!114 &445103403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,8 +1142,7 @@ PrefabInstance:
     - target: {fileID: 6810261754463447697, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: orderedKeys.Array.data[3]
-      value: "\u0421\u0438\u043B\u0430 F \u043D\u0430 \u043F\u0440\u0430\u0432\u043E\u0439
-        \u0447\u0430\u0441\u0442\u0438 (\u041D)"
+      value: "\u0421\u0438\u043B\u0430 F2 \u0441\u043F\u0440\u0430\u0432\u0430 (\u041D)"
       objectReference: {fileID: 0}
     - target: {fileID: 6810261754463447697, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
@@ -1167,8 +1167,7 @@ PrefabInstance:
     - target: {fileID: 6810261754463447697, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: orderedKeys.Array.data[0]
-      value: "\u0421\u0438\u043B\u0430 F \u043D\u0430 \u043B\u0435\u0432\u043E\u0439
-        \u0447\u0430\u0441\u0442\u0438 (\u041D)"
+      value: "\u0421\u0438\u043B\u0430 F1 \u0441\u043B\u0435\u0432\u0430 (\u041D)"
       objectReference: {fileID: 0}
     - target: {fileID: 6810261754491357079, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}

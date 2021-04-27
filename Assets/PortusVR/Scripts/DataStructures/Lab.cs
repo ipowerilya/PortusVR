@@ -8,7 +8,7 @@ public class Lab : MonoBehaviour
     public string internalName; //scene should be named the same
     public bool done = false; // TODO move to method
     public List<LabTask> tasks; // fill in order of execution
-    public string shortDescription;
+    [TextArea(15, 20)] public string shortDescription;
     public Material associatedSkybox;
     // TODO add description with pics format
 

@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fda3f0d92254248b317d5b30c122fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decimalPlaces: 2
   point_a: {fileID: 910793825}
   point_b: {fileID: 2102502947}
   point_to_count_distance: {fileID: 132009667}
@@ -2094,7 +2095,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 115121203}
+      objectReference: {fileID: 115121204}
     - target: {fileID: 5893672854543767747, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3019,7 +3020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 115121203}
+      objectReference: {fileID: 115121204}
     - target: {fileID: 5893672854543767747, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

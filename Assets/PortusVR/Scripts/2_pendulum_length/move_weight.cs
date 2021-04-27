@@ -41,4 +41,14 @@ public class move_weight : MetricReading
         fixedJoint.connectedAnchor = new_position;
         textController.SetValue(Vector3.Distance(moving_point.transform.position, point_to_count_distance.position));
     }
+
+    public void Freeze()
+    {
+        moving_point.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    public void Release()
+    {
+        moving_point.GetComponent<Rigidbody>().isKinematic = false;
+    }
 }
