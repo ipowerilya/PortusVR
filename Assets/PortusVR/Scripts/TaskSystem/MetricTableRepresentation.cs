@@ -7,22 +7,14 @@ using UnityEngine.UI;
 
 public class MetricTableRepresentation : MonoBehaviour
 {
-    public RectTransform rowsOffset;
-    public GameObject rowPrefab;
     public GameObject elementPrefab;
-
-    VerticalLayoutGroup rowGroup;
-
+    public float maxCellWidth = 200;
+    GridLayoutGroup group;
     MetricTable table;
 
     public void Awake()
     {
-        rowGroup = GetComponentInChildren<VerticalLayoutGroup>();
-    }
-
-    HorizontalLayoutGroup AppendRow()
-    {
-        return Instantiate(rowPrefab, rowGroup.transform).GetComponent<HorizontalLayoutGroup>();
+        group = GetComponentInChildren<GridLayoutGroup>();
     }
 
     public void SetTable(MetricTable table) 
@@ -30,26 +22,25 @@ public class MetricTableRepresentation : MonoBehaviour
         this.table = table;
     }
 
-    void AppendText(HorizontalLayoutGroup group, string text)
+    void AppendText(LayoutGroup group, string text)
     {
         Instantiate(elementPrefab, group.transform).GetComponent<Text>().text = text;
     }
 
     void AddHeading()
     {
-        var titleGroup = AppendRow();
-        AppendText(titleGroup, "№");
+        AppendText(group, "№");
         foreach (var key in table.orderedKeys)
         {
-            AppendText(titleGroup, key);
+            AppendText(group, key);
         }
     }
 
     void ClearRows()
     {
-        for (int i = rowGroup.transform.childCount - 1; i >= 0; --i)
+        for (int i = group.transform.childCount - 1; i >= 0; --i)
         {
-            GameObject.Destroy(rowGroup.transform.GetChild(i).gameObject);
+            GameObject.Destroy(group.transform.GetChild(i).gameObject);
         } 
     }
 
@@ -65,40 +56,45 @@ public class MetricTableRepresentation : MonoBehaviour
     {
         if (table.GetMaxListCount() > 0)
         {
-            var elementGroupMean = AppendRow();
-            AppendText(elementGroupMean, "Mean");
+            AppendText(group, "Mean");
             for (int i = 0; i < table.rawTable.Count; ++i)
             {
                 var values = table.rawTable[i];
                 if (values.Count == 0)
                 {
-                    AppendText(elementGroupMean, "empty");
+                    AppendText(group, "empty");
                 }
                 else
                 {
-                    AppendText(elementGroupMean, values.Average().ToString());
+                    AppendText(group, values.Average().ToString());
                 }
             }
-            var elementGroupSigma = AppendRow();
-            AppendText(elementGroupSigma, "Sigma");
+            AppendText(group, "Sigma");
             for (int i = 0; i < table.rawTable.Count; ++i)
             {
                 var values = table.rawTable[i];
                 if (values.Count == 0)
                 {
-                    AppendText(elementGroupMean, "empty");
+                    AppendText(group, "empty");
                 }
                 else
                 {
-                    AppendText(elementGroupSigma, GetStandardDeviation(values).ToString());
+                    AppendText(group, GetStandardDeviation(values).ToString());
                 }
             }
         }
-
     }
 
     public void ResetTable()
     {
+        var colCount = table.orderedKeys.Count + 1;
+        
+        var cellSize = group.cellSize; 
+        cellSize.x = Mathf.Min(gameObject.GetComponent<RectTransform>().rect.width / colCount, maxCellWidth);
+        group.cellSize = cellSize;
+
+        group.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+        group.constraintCount = colCount;
         ClearRows();
         AddHeading();
     }
@@ -109,14 +105,13 @@ public class MetricTableRepresentation : MonoBehaviour
         AppendStatistics();
         for (int i = 0; i < table.GetMaxListCount(); ++i)
         {
-            var elementGroup = AppendRow();
-            AppendText(elementGroup, (i+1).ToString());
+            AppendText(group, (i+1).ToString());
             for (int j = 0; j < table.rawTable.Count; ++j)
             {
                 if (table.rawTable[j].Count > i)
-                    AppendText(elementGroup, table.rawTable[j][i].ToString());
+                    AppendText(group, table.rawTable[j][i].ToString());
                 else
-                    AppendText(elementGroup, "empty");
+                    AppendText(group, "empty");
             }
 
             //Destroy(elementGroup);

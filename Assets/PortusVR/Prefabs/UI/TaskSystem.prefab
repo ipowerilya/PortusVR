@@ -445,9 +445,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2856557662488077852}
+    - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2856557662488077852}
+    - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SaveAllResultsToFiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 355225930830473616, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1641434893431854627, guid: 680839cc2785ac3429472fc46455f809,
         type: 3}
       propertyPath: m_AnchorMin.y

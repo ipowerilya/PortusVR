@@ -21,6 +21,6 @@ public class LabTask : MonoBehaviour
 
     public void SaveResultsToFile()
     {
-        table.DumpToFile("username" + "_" + internalLabName + "_" + internalLabName + ".csv");
+        table.DumpToFile("username" + "_" + internalLabName + "_" + internalName + ".csv");
     }
 }

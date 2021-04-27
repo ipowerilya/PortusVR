@@ -6,12 +6,14 @@ using UnityEngine;
 public class Sticky : MonoBehaviour
 {
     public Collider target;
-    Joint joint;
-    float detachTime;
+    Joint joint = null;
+    float detachTime = 0f;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (target == collision.collider && (Time.time - detachTime) > 0.2f)
+        var timeDiff = Time.time - detachTime;
+        Debug.Log("time: " + timeDiff.ToString());
+        if (target == collision.collider && joint == null && timeDiff > 0.2f)
         {
             joint = gameObject.AddComponent<FixedJoint>();
             joint.connectedBody = target.attachedRigidbody;
@@ -22,5 +24,6 @@ public class Sticky : MonoBehaviour
     {
         detachTime = Time.time;
         Destroy(joint);
+        joint = null;
     }
 }

@@ -83,7 +83,7 @@ public class LabTasksManager : MonoBehaviour
         return currentTaskIndex;
     }
 
-    void SaveResultsToFiles()
+    public void SaveAllResultsToFiles()
     {
         foreach (var task in GetTasks())
             task.SaveResultsToFile();
