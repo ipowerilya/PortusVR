@@ -772,26 +772,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2953033312204943164, guid: 4465ec5a23f05bf4ba805b056093d61c,
-        type: 3}
-      propertyPath: MovementSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2953033312204943164, guid: 4465ec5a23f05bf4ba805b056093d61c,
-        type: 3}
-      propertyPath: SprintSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2953033312204943164, guid: 4465ec5a23f05bf4ba805b056093d61c,
-        type: 3}
-      propertyPath: StrafeSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2953033312204943164, guid: 4465ec5a23f05bf4ba805b056093d61c,
-        type: 3}
-      propertyPath: StrafeSprintSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4492470237254153300, guid: 4465ec5a23f05bf4ba805b056093d61c,
         type: 3}
       propertyPath: m_RootOrder
