@@ -35,7 +35,7 @@ public class ReadWeight : MetricReading
         if (count > 0)
         {
             AddMetric("Сила (Н)", dynamo.GetWeight());
-            AddMetric("Колличество грузов", count);
+            AddMetric("Количество грузов", count);
         }
     }
 }
