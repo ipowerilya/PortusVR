@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class LabOverviewUI : MonoBehaviour
 {
-    public TaskOverviewUI tasksOverview;
-    public LabUi labUi;
-    public TableUI resultsUi;
+    public TaskSelectionUI tasksSelectionUI;
+    public LabDescriptionUI labDescriptionUi;
+    public MetricTableRepresentation metricTableRepresentation;
 
     int currentTaskIndex = 0;
     Lab lab;
 
     private void Start()
     {
-        tasksOverview.TaskCallback = SetCurrentTaskIndex;
+        tasksSelectionUI.TaskCallback = SetCurrentTaskIndex;
     }
 
     public void SetLab(Lab lab)
     {
         currentTaskIndex = 0;
         this.lab = lab;
-        tasksOverview.lab = lab;
+        tasksSelectionUI.lab = lab;
         UpdateUI();
     }
 
@@ -32,9 +32,9 @@ public class LabOverviewUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        labUi.SetLab(lab);
-        resultsUi.SetTable(lab.tasks[currentTaskIndex].table);
-        resultsUi.UpdateTable();
-        tasksOverview.UpdateUI(currentTaskIndex);
+        labDescriptionUi.SetLab(lab);
+        metricTableRepresentation.SetTable(lab.tasks[currentTaskIndex].table);
+        metricTableRepresentation.UpdateTable();
+        tasksSelectionUI.UpdateUI(currentTaskIndex);
     }
 }
