@@ -5,10 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Transform))]
 public class Tower : MonoBehaviour
 {
-    public GameObject sectionPrefab;
     public Transform baseObject;
     public float sectionHeight = 1;
     public int maxHeight = 3;
+
+    public int height { get { return tower.Count; } }
 
     List<GameObject> tower = new List<GameObject>();
 
@@ -47,7 +48,7 @@ public class Tower : MonoBehaviour
         var height = tower.Count;
         if (height < maxHeight)
         {
-            var obj = Instantiate(sectionPrefab);
+            var obj = Instantiate(baseObject.gameObject);
             tower.Add(obj);
             ResetSection(height);
         }

@@ -13,6 +13,7 @@ public class RemoteControllable : MonoBehaviour {
     Rigidbody rb;
     public Vector3 rotationStateA = Vector3.zero;
     public Vector3 rotationStateB = Vector3.right * 90;
+    public bool rotationState { get { return transform.rotation.eulerAngles != rotationStateA; } }
 
     Vector3 position;
     
