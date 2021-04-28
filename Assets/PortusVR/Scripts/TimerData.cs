@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerData : MonoBehaviour
+public class TimerData : MetricReading
 {
     //public float Timer;
     public List<float> TimeList = new List<float>();
@@ -13,25 +13,39 @@ public class TimerData : MonoBehaviour
     public GameObject TableData;
     public GameObject TableDataPrefab;
     public Text ExNumber, ExAngle, ExData;
+    public float Distance, accel, speed;
+    public GetDistance DistanceSrc;
     public void SaveData(float TimeValue)
     {
         TimeList.Add(TimeValue);
         Angle.Add((int)platform.transform.localRotation.eulerAngles.x);
-        TableData = Instantiate(TableDataPrefab, TablePlaceholder.transform);
-        foreach(Transform child in TableData.transform)
-        {
-            if(child.gameObject.tag == "Try")
-            {
-                child.gameObject.GetComponent<Text>().text = TimeList.Count.ToString();
-            }
-            if (child.gameObject.tag == "AngleData")
-            {
-                child.gameObject.GetComponent<Text>().text = Angle[Angle.Count-1].ToString();
-            }
-            if (child.gameObject.tag == "TimeData")
-            {
-                child.gameObject.GetComponent<Text>().text = TimeList[TimeList.Count - 1].ToString();
-            }
-        }
+        Distance = DistanceSrc.dist;
+        accel = 2 * Distance / TimeValue * TimeValue;
+        speed = accel * TimeValue;
+        //TableData = Instantiate(TableDataPrefab, TablePlaceholder.transform);
+        //foreach(Transform child in TableData.transform)
+        //{
+        //    if(child.gameObject.tag == "Try")
+        //    {
+        //        child.gameObject.GetComponent<Text>().text = TimeList.Count.ToString();
+        //    }
+        //    if (child.gameObject.tag == "AngleData")
+        //    {
+        //        child.gameObject.GetComponent<Text>().text = Angle[Angle.Count-1].ToString();
+        //    }
+        //    if (child.gameObject.tag == "TimeData")
+        //    {
+        //        child.gameObject.GetComponent<Text>().text = TimeList[TimeList.Count - 1].ToString();
+        //    }
+        //}
+        ReadMetric();
+    }
+    public override void ReadMetric()
+    {
+        AddMetric("Время (с)", TimeList[TimeList.Count-1]);
+        AddMetric("Ускорение (м/с^2)", accel);
+        AddMetric("Мгновенная скорость (м/с)", speed);
+        AddMetric("Угол", Angle[Angle.Count-1]);
+        AddMetric("Расстояние (м)", Distance);
     }
 }
