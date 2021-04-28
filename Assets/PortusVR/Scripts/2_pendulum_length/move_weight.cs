@@ -7,10 +7,11 @@ public class move_weight : MetricReading
     public Transform point_a;
     public Transform point_b;
     public Transform point_to_count_distance;
-    public string metric_key;
     public GameObject moving_point;
     public TextController textController;
     private FixedJoint fixedJoint;
+
+    public Stopwatch stopwatch;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +21,14 @@ public class move_weight : MetricReading
 
     public override void ReadMetric()
     {
-        AddMetric(metric_key, Vector3.Distance(moving_point.transform.position, point_to_count_distance.position));
+        var time = stopwatch.Time;
+        var numSwings = 30;
+        AddMetric("Длина (М)", Vector3.Distance(moving_point.transform.position, point_to_count_distance.position));
+        AddMetric("Время (с)", time);
+        AddMetric("Период (с)", time / numSwings);
+        AddMetric("Частота (Гц)", (float)numSwings / time);
     }
 
-    public void ComputeAllMetrics()
-    {
-        var dist = Vector3.Distance(moving_point.transform.position, point_to_count_distance.position);
-        AddMetric("Длинна (М)", dist);
-        AddMetric("Время (с)", GetLastTimeInterval());
-        AddMetric("Период (с)", GetLastTimeInterval() / 30);
-        AddMetric("Частота (Гц)", 30 / GetLastTimeInterval());
-    }
 
     public void UpdatePosition(float percentage)
     {

@@ -317,7 +317,7 @@ public class OVRLipSyncMicInput : MonoBehaviour
         //Starts recording
         audioSource.clip = Microphone.Start(selectedDevice, true, 1, micFrequency);
 
-        Stopwatch timer = Stopwatch.StartNew();
+        System.Diagnostics.Stopwatch timer = System.Diagnostics.Stopwatch.StartNew();
 
         // Wait until the recording has started
         while (!(Microphone.GetPosition(selectedDevice) > 0) && timer.Elapsed.TotalMilliseconds < 1000) {

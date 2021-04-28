@@ -35,7 +35,7 @@ public class MetricTable : MonoBehaviour
         if (keyIndex.ContainsKey(key))
         {
             containsUnsavedData = true;
-            rawTable[keyIndex[key]].Add(value);
+            GetColumn(key).Add(value);
         }
         else
         {
@@ -46,6 +46,11 @@ public class MetricTable : MonoBehaviour
     public int GetMaxListCount()
     {
         return rawTable.Max(table => table.Count);
+    }
+
+    public List<float> GetColumn(string key)
+    {
+        return rawTable[keyIndex[key]];
     }
 
     public void ClearData()

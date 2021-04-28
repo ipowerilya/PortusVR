@@ -8,10 +8,17 @@ public abstract class MetricReading : MonoBehaviour
     public int decimalPlaces = 2;
     LabTasksManager taskManager;
 
-    //for easy connection with timer
-    List<float> time = new List<float>();
+    public MetricTable table 
+    { 
+        get { return taskManager.GetCurrentTask().table; } 
+    }
 
     private void Start()
+    {
+        FindTaskManager();
+    }
+
+    private void FindTaskManager()
     {
         taskManager = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<LabTasksManager>();
     }
@@ -26,25 +33,9 @@ public abstract class MetricReading : MonoBehaviour
         value = Mathf.Round(value * decimalMult) / decimalMult;
         if (taskManager == null)
         {
-            Debug.Log("task manager not found, attempt to find...");
-            Start();
+            Debug.Log("task manager not found, this should never happen");
+            FindTaskManager();
         }
         taskManager.AddMetric(key, value);
     }
-
-    public void SetTime (float time)
-    {
-        this.time.Add(time);
-    }
-
-    public float GetLastTimeInterval()
-    {
-        return time[time.Count - 1];
-    }
-
-    public List<float> GetAllTimeIntervals()
-    {
-        return time;
-    }
-
 }

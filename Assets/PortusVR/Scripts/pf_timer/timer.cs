@@ -37,8 +37,8 @@ public class timer : MetricReading
             last_added_time = time_diff;
             if (readMetricOnStop)
                 ReadMetric();
-            if (time_reciver != null)
-                time_reciver.SetTime(time_diff);
+            //if (time_reciver != null)
+                //time_reciver.SetTime(time_diff);
         }
     }
 
