@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReadMoments : MetricReading
+public class Lab0ReadMoments : MetricReading
 {
     public List<BNG.JointSnapZone> snaps; // first two are picked
     public Transform pivot;

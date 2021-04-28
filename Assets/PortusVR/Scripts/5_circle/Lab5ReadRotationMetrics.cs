@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReadRotationMetrics : MetricReading
+public class Lab5ReadRotationMetrics : MetricReading
 {
     public Stopwatch stopwatch;
 

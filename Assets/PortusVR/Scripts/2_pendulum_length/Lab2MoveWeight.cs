@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class move_weight : MetricReading
+public class Lab2MoveWeight : MetricReading
 {
     public Transform point_a;
     public Transform point_b;

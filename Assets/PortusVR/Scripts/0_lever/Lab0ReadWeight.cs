@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReadWeight : MetricReading
+public class Lab0ReadWeight : MetricReading
 {
     public Dynamometer dynamo;
 
