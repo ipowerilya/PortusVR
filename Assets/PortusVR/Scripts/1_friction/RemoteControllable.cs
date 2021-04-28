@@ -34,7 +34,7 @@ public class RemoteControllable : MonoBehaviour {
 
     public void SetRotationState(bool rotationState) {
         var rotation = rotationState ? rotationStateB : rotationStateA;
-        rb.rotation = Quaternion.Euler(rotation);
+        transform.rotation = Quaternion.Euler(rotation);
     }
 
     public void SetRotationA() {

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public GameObject sectionPrefab;
+    public Transform baseObject;
     public float sectionHeight = 1;
     public int maxHeight = 3;
 
@@ -13,12 +14,12 @@ public class Tower : MonoBehaviour
 
     Vector3 sectionPosition(int height)
     {
-        return transform.position + Vector3.up * sectionHeight * (height+1);
+        return baseObject.transform.position + Vector3.up * sectionHeight * (height+1);
     }
 
     Quaternion sectionRotation()
     {
-        return transform.rotation;
+        return baseObject.transform.rotation;
     }
 
     void ResetSection(int height)
