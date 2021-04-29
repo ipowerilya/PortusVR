@@ -715,6 +715,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 6353396911132810028, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
+        type: 3}
+      propertyPath: associatedSkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 9803600998c48b140b2f7038d0fc2eb1, type: 2}
     - target: {fileID: 6810261753521468560, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: playerTransform
@@ -884,6 +889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -80.25122
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640446188083895861, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
+        type: 3}
+      propertyPath: m_Name
+      value: Task 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aa1a94bc7d15e24696c475f61fa0fb2, type: 3}

@@ -15,13 +15,24 @@ public class TimerData : MetricReading
     public Text ExNumber, ExAngle, ExData;
     public float Distance, accel, speed;
     public GetDistance DistanceSrc;
+    public bool Lab7;
+    public Text DistText;
+    public MetricReader7 Metric7;
     public void SaveData(float TimeValue)
     {
         TimeList.Add(TimeValue);
         Angle.Add((int)platform.transform.localRotation.eulerAngles.x);
-        Distance = DistanceSrc.dist;
-        accel = 2 * Distance / TimeValue * TimeValue;
-        speed = accel * TimeValue;
+        if (!Lab7)
+        {
+            Distance = DistanceSrc.dist;
+            accel = 2 * Distance / TimeValue * TimeValue;
+            speed = accel * TimeValue;
+        }
+        else
+        { 
+            Distance = float.Parse(DistText.text);
+        }
+
         //TableData = Instantiate(TableDataPrefab, TablePlaceholder.transform);
         //foreach(Transform child in TableData.transform)
         //{
@@ -38,7 +49,12 @@ public class TimerData : MetricReading
         //        child.gameObject.GetComponent<Text>().text = TimeList[TimeList.Count - 1].ToString();
         //    }
         //}
-        ReadMetric();
+        if (!Lab7)
+            ReadMetric();
+        else
+        {
+            Metric7.ReadMetric();
+        }
     }
     public override void ReadMetric()
     {
