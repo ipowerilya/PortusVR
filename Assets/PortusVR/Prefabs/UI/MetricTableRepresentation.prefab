@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55f4f91dbbd52a4abcd6e67d9bd9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementPrefab: {fileID: 3173117890509595108, guid: fee588818094688479ffd0f54d86877c,
+  elementPrefab: {fileID: 6420463184000874441, guid: 1295ece91b0b0034aaac1aaeb87c9b71,
     type: 3}
   maxCellWidth: 200
 --- !u!1 &2180724621978987529

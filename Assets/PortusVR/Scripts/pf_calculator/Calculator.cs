@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Calculator : MonoBehaviour
 {
     public Text bufferText;
+    public FloatEvent OnInsert;
 
     float buffer = 0;
     float operand = 0;
@@ -19,6 +20,7 @@ public class Calculator : MonoBehaviour
     bool negative = false;
 
     static readonly HashSet<string> unaryOp = new HashSet<string> { "1/x", "^2", "sqrt" };
+
 
     void Start()
     {
@@ -168,5 +170,10 @@ public class Calculator : MonoBehaviour
     void UpdateUI()
     {
         bufferText.text = (negative ? "-" : "") + (inputString.StartsWith(".") ? "0" : "") + (inputString.Length == 0 ? "0" : inputString);
+    }
+
+    public void Insert()
+    {
+        OnInsert.Invoke(buffer);
     }
 }

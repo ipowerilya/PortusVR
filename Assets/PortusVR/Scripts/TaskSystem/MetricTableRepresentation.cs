@@ -11,6 +11,9 @@ public class MetricTableRepresentation : MonoBehaviour
     public float maxCellWidth = 200;
     GridLayoutGroup group;
     MetricTable table;
+    Tuple<int, int> selectedTableLocation = null;
+
+    delegate void onElementClick(GameObject button);
 
     public void Awake()
     {
@@ -22,17 +25,22 @@ public class MetricTableRepresentation : MonoBehaviour
         this.table = table;
     }
 
-    void AppendText(LayoutGroup group, string text)
+    GameObject AppendElement(LayoutGroup group, string text, onElementClick callback = null)
     {
-        Instantiate(elementPrefab, group.transform).GetComponent<Text>().text = text;
+        var obj = Instantiate(elementPrefab, group.transform);
+        obj.GetComponentInChildren<Text>().text = text;
+        var button = obj.GetComponentInChildren<Button>();
+        if (callback != null) button.onClick.AddListener(() => { callback(obj); });
+        else button.interactable = false;
+        return obj;
     }
 
     void AddHeading()
     {
-        AppendText(group, "№");
+        AppendElement(group, "№");
         foreach (var key in table.orderedKeys)
         {
-            AppendText(group, key);
+            AppendElement(group, key);
         }
     }
 
@@ -56,30 +64,30 @@ public class MetricTableRepresentation : MonoBehaviour
     {
         if (table.GetMaxListCount() > 0)
         {
-            AppendText(group, "Mean");
+            AppendElement(group, "Mean");
             for (int i = 0; i < table.rawTable.Count; ++i)
             {
                 var values = table.rawTable[i];
                 if (values.Count == 0)
                 {
-                    AppendText(group, "empty");
+                    AppendElement(group, "empty");
                 }
                 else
                 {
-                    AppendText(group, values.Average().ToString());
+                    AppendElement(group, values.Average().ToString());
                 }
             }
-            AppendText(group, "Sigma");
+            AppendElement(group, "Sigma");
             for (int i = 0; i < table.rawTable.Count; ++i)
             {
                 var values = table.rawTable[i];
                 if (values.Count == 0)
                 {
-                    AppendText(group, "empty");
+                    AppendElement(group, "empty");
                 }
                 else
                 {
-                    AppendText(group, GetStandardDeviation(values).ToString());
+                    AppendElement(group, GetStandardDeviation(values).ToString());
                 }
             }
         }
@@ -105,16 +113,33 @@ public class MetricTableRepresentation : MonoBehaviour
         AppendStatistics();
         for (int i = 0; i < table.GetMaxListCount(); ++i)
         {
-            AppendText(group, (i+1).ToString());
+            AppendElement(group, (i+1).ToString());
             for (int j = 0; j < table.rawTable.Count; ++j)
             {
-                if (table.rawTable[j].Count > i)
-                    AppendText(group, table.rawTable[j][i].ToString());
-                else
-                    AppendText(group, "empty");
+                var column = i;
+                var row = j;
+                var obj = AppendElement(group, table.rawTable[j].Count > i ? table.rawTable[j][i].ToString() : "empty", callback: (GameObject element) => {
+                    selectedTableLocation = new Tuple<int, int>(column, row);
+                    UpdateTable();
+                });
+                if (selectedTableLocation != null && selectedTableLocation.Item1 == column && selectedTableLocation.Item2 == row)
+                {
+                    var button = obj.GetComponentInChildren<Button>();
+                    var colors = button.colors;
+                    var color = new Color(1f, 1f, 1f, 0.125f);
+                    colors.normalColor = color;
+                    colors.highlightedColor = color;
+                    button.colors = colors;
+                }
             }
 
             //Destroy(elementGroup);
         }
+    }
+
+    public void SetSelectedTableValue(float value)
+    {
+        if (selectedTableLocation != null) table.rawTable[selectedTableLocation.Item2][selectedTableLocation.Item1] = value;
+        UpdateTable();
     }
 }
