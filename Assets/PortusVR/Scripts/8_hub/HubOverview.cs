@@ -68,6 +68,7 @@ public class HubOverview : MonoBehaviour
     {
         labOverviewUI.SetLab(GetCurrentLab());
         labMenuUI.UpdateUI(currentLabIndex);
+
     }
 
     // TODO set scene to lab
@@ -91,6 +92,12 @@ public class HubOverview : MonoBehaviour
     void UpdateTaskManager()
     {
         GameObject.FindGameObjectWithTag("TaskManager").GetComponent<LabTasksManager>().SetLab(GetCurrentLab());
+    }
+
+    public void ToggleAutoComputation ()
+    {
+        GetCurrentLab().enabledAutoComputation = !GetCurrentLab().enabledAutoComputation;
+        UpdateUI();
     }
 
     IEnumerator AsyncLoadScene()

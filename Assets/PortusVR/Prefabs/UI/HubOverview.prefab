@@ -177,6 +177,7 @@ MonoBehaviour:
     \u0440\u0430\u0432\u043D\u043E\u043C\u0435\u0440\u043D\u043E\u043C \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0438. "
   internalName: 7_No_accel_speed
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 211407910399624820}
   shortDescription: "\u0412 \u0434\u0430\u043D\u043D\u043E\u0439 \u043B\u0430\u0431\u043E\u0440\u0430\u0442\u043E\u0440\u043D\u043E\u0439
@@ -312,6 +313,7 @@ MonoBehaviour:
     \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u0433\u043E \u043F\u0430\u0434\u0435\u043D\u0438\u044F"
   internalName: 6_gCheck
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 2716160993354436885}
   shortDescription: 
@@ -366,6 +368,7 @@ MonoBehaviour:
     \u0443\u043F\u0440\u0443\u0433\u043E\u0441\u0442\u0438 \u0438 \u0442\u044F\u0436\u0435\u0441\u0442\u0438"
   internalName: 5_circle
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 19440889799571838}
   shortDescription: 
@@ -507,6 +510,7 @@ MonoBehaviour:
   labMenuUI: {fileID: 4149875823357157353}
   disableSceneLoading: 0
   DefaultSkybox: {fileID: 2100000, guid: 80fa4f34db87aad4d93c45188b19bfd6, type: 2}
+  taskSystemRoot: {fileID: 0}
   playerTransform: {fileID: 0}
   playerScreenFader: {fileID: 0}
   currentLabIndex: 0
@@ -678,6 +682,7 @@ MonoBehaviour:
     \u0440\u0430\u0432\u043D\u043E\u0432\u0435\u0441\u0438\u044F \u0440\u044B\u0447\u0430\u0433\u0430"
   internalName: 0_lever
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 6810261753659752124}
   - {fileID: 6810261754463447696}
@@ -740,6 +745,7 @@ MonoBehaviour:
     \u0441\u0438\u043B\u044B"
   internalName: 1_friction
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 6810261754891186181}
   shortDescription: "\u0412 \u0434\u0430\u043D\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u0435
@@ -903,6 +909,7 @@ MonoBehaviour:
     \u0434\u043B\u0438\u043D\u044B"
   internalName: 2_pendulum_length
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 6810261755032982099}
   shortDescription: "\u0412 \u0434\u0430\u043D\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u0435
@@ -1138,6 +1145,7 @@ MonoBehaviour:
     \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438"
   internalName: 4_accelerated_motion_without_initial_speed
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 7929978058020011884}
   - {fileID: 991590255336364212}
@@ -1206,6 +1214,7 @@ MonoBehaviour:
     \u043C\u0430\u044F\u0442\u043D\u0438\u043A\u0430"
   internalName: 3_rope_pendulum
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 15407321279146211}
   shortDescription: 
@@ -1679,6 +1688,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621825688979633721, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621825688979633721, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621825688979633721, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621825688979633721, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6810261753521468560}
+    - target: {fileID: 6621825688979633721, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleAutoComputation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621825688979633721, guid: 94eaa79f81126644db04a4857398d2cc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7999119573045778441, guid: 94eaa79f81126644db04a4857398d2cc,
         type: 3}

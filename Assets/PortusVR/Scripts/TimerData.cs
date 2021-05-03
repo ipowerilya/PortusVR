@@ -59,7 +59,7 @@ public class TimerData : MetricReading
     public override void ReadMetric()
     {
         AddMetric("Время (с)", TimeList[TimeList.Count-1]);
-        AddMetric("Ускорение (м/с^2)", accel);
+        AddMetric("Ускорение (м/с^2)", accel, true);
         AddMetric("Мгновенная скорость (м/с)", speed);
         AddMetric("Угол", Angle[Angle.Count-1]);
         AddMetric("Расстояние (м)", Distance);

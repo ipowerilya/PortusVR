@@ -25,8 +25,8 @@ public class Lab2MoveWeight : MetricReading
         var numSwings = 30;
         AddMetric("Длина (М)", Vector3.Distance(moving_point.transform.position, point_to_count_distance.position));
         AddMetric("Время (с)", time);
-        AddMetric("Период (с)", time / numSwings);
-        AddMetric("Частота (Гц)", (float)numSwings / time);
+        AddMetric("Период (с)", time / numSwings, true);
+        AddMetric("Частота (Гц)", (float)numSwings / time, true);
     }
 
 

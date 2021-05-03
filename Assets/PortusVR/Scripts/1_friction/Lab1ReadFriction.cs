@@ -14,7 +14,7 @@ public class Lab1ReadFriction : MetricReading
                                       : 4 * 3;
         float force = rc.GetComponent<ConstantForce>().force.magnitude;
 
-        AddMetric("Площадь (М*2)", area);
+        AddMetric("Площадь (М*2)", area, true);
         AddMetric("Вес (кг)", weight);
         AddMetric("Сила (Н)", force);
     }

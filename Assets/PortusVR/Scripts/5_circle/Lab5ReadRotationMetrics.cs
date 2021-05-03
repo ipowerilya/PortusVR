@@ -19,8 +19,8 @@ public class Lab5ReadRotationMetrics : MetricReading
 
         AddMetric("Время (с)", time);
         AddMetric("Радиус (м)", radius);
-        AddMetric("Центр.уск.(М/c*2)", accel);
+        AddMetric("Центр.уск.(М/c*2)", accel, true);
         AddMetric("Сила (Н)", centrifugalForce.magnitude);
-        AddMetric("Сила упр. (Н)", tension.magnitude);
+        AddMetric("Сила упр. (Н)", tension.magnitude, true);
     }
 }

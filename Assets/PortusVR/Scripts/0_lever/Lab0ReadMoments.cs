@@ -40,12 +40,12 @@ public class Lab0ReadMoments : MetricReading
 
         var fRatio = F1 / F2;
         var lRatio = L1 / L2;
-        AddMetric("F1/F2", fRatio);
-        AddMetric("L1/L2", lRatio);
+        AddMetric("F1/F2", fRatio, true);
+        AddMetric("L1/L2", lRatio, true);
         
         var M1 = F1 * L1;
         var M2 = F2 * L2;
-        AddMetric("M1 (Н*М)", M1);
-        AddMetric("M2 (Н*М)", M2);
+        AddMetric("M1 (Н*М)", M1, true);
+        AddMetric("M2 (Н*М)", M2, true);
     }
 }

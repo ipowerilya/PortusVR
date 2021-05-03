@@ -18,7 +18,7 @@ public class Lab3ReadTimeWithDeviationFromMean : MetricReading
         var deviationColumn = table.GetConstColumn(deviationKey);
         for (int index = 0;  index < deviationColumn.Count; ++index)
         {
-            AddMetricByIndex(deviationKey, index, timeColumn[index] - mean);
+            AddMetricByIndex(deviationKey, index, timeColumn[index] - mean, true);
         }
     }
 }

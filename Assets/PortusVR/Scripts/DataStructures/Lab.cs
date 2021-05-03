@@ -7,6 +7,7 @@ public class Lab : MonoBehaviour
     public string labName;
     public string internalName; //scene should be named the same
     public bool done = false; // TODO move to method
+    public bool enabledAutoComputation = true;
     public List<LabTask> tasks; // fill in order of execution
     [TextArea(15, 20)] public string shortDescription;
     public Material associatedSkybox;

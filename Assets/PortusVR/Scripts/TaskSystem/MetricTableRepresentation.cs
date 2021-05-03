@@ -67,7 +67,7 @@ public class MetricTableRepresentation : MonoBehaviour
             AppendElement(group, "Mean");
             foreach (var key in table.orderedKeys)
             {
-                var values = table.GetConstColumn(key);
+                var values = table.GetConstColumn(key).Where(x => !float.IsNaN(x)).ToList();
                 if (values.Count == 0)
                 {
                     AppendElement(group, "empty");
@@ -80,8 +80,8 @@ public class MetricTableRepresentation : MonoBehaviour
             AppendElement(group, "Sigma");
             foreach (var key in table.orderedKeys)
             {
-                var values = table.GetConstColumn(key);
-                if (values.Count == 0)
+                var values = table.GetConstColumn(key).Where(x => !float.IsNaN(x)).ToList();
+                if (values.Count == 0) 
                 {
                     AppendElement(group, "empty");
                 }
@@ -119,11 +119,14 @@ public class MetricTableRepresentation : MonoBehaviour
                 var columnKey = key;
                 var row = i;
                 var column = table.GetConstColumn(key);
-                var obj = AppendElement(group, column[i].ToString(), callback: (GameObject element) => {
+                var obj = AppendElement(group, float.IsNaN(column[i]) ? "не выч." : column[i].ToString()
+                                        , callback: (GameObject element) => {
                     selectedTableLocation = new Tuple<string, int>(columnKey, row);
                     UpdateTable();
                 });
-                if (selectedTableLocation != null && selectedTableLocation.Item1 == columnKey && selectedTableLocation.Item2 == row)
+                if (selectedTableLocation != null 
+                    && selectedTableLocation.Item1 == columnKey 
+                    && selectedTableLocation.Item2 == row)
                 {
                     var button = obj.GetComponentInChildren<Button>();
                     var colors = button.colors;
@@ -133,14 +136,13 @@ public class MetricTableRepresentation : MonoBehaviour
                     button.colors = colors;
                 }
             }
-
-            //Destroy(elementGroup);
         }
     }
 
     public void SetSelectedTableValue(float value)
     {
-        if (selectedTableLocation != null) table.AddMetricByIndex(selectedTableLocation.Item1, selectedTableLocation.Item2, value);
+        if (selectedTableLocation != null) table.AddMetricByIndex(selectedTableLocation.Item1, 
+                                                                  selectedTableLocation.Item2, value);
         UpdateTable();
     }
 }
