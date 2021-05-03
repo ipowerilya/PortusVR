@@ -12,19 +12,16 @@ public class HubOverview : MonoBehaviour
     public LabMenuUI labMenuUI;
     public bool disableSceneLoading = false;
     public Material DefaultSkybox;
+    public GameObject taskSystemRoot;
 
     public Transform playerTransform; // for scene loading
     public BNG.ScreenFader playerScreenFader; // for screen fading during scene preloading (should have alpha 255 initially)
 
     public int currentLabIndex = 0;
     string loadedScene = null;
-    Scene hubScene;
-    GameObject taskSystemFromScene = null;
-
 
     private void Start()
     {
-        hubScene = SceneManager.GetActiveScene();
         if (!disableSceneLoading)
         {
             StartCoroutine(AsyncPreloadScenes());
@@ -106,8 +103,7 @@ public class HubOverview : MonoBehaviour
         }
         loadedScene = sceneName;
         RenderSettings.skybox = GetCurrentLab().associatedSkybox;
-        taskSystemFromScene = GameObject.FindGameObjectWithTag("TaskSystem");
-        SceneManager.MoveGameObjectToScene(taskSystemFromScene, hubScene);
+        TeleportTaskSystemSoItActuallyProbablyWorks();
         UpdateTaskManager();
     }
 
@@ -122,7 +118,6 @@ public class HubOverview : MonoBehaviour
             yield return null;
         }
         loadedScene = null;
-        Destroy(taskSystemFromScene);
         RenderSettings.skybox = DefaultSkybox;
     }
 
@@ -142,5 +137,13 @@ public class HubOverview : MonoBehaviour
         }
         Debug.Log("Scene preloading finished");
         playerScreenFader.DoFadeOut();
+    }
+
+    public void TeleportTaskSystemSoItActuallyProbablyWorks()
+    {
+        var targetTransform = GameObject.FindGameObjectsWithTag("TaskSystemTarget")[0].transform;
+        taskSystemRoot.transform.position = targetTransform.position;
+        taskSystemRoot.transform.rotation = targetTransform.rotation;
+        taskSystemRoot.transform.localScale = targetTransform.localScale;
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Try
   - TaskManager
   - TaskSystem
+  - TaskSystemTarget
   layers:
   - Default
   - TransparentFX
