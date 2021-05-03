@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: c051fe5a20f72814f9643eb10ebbd2fc, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8dd2f17b6e3f8174390967bc55ead836, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -303,7 +303,7 @@ PrefabInstance:
     - target: {fileID: 5216251855803089810, guid: 5a341def20e734d47a4545d8edac555a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5216251855803089810, guid: 5a341def20e734d47a4545d8edac555a,
         type: 3}
@@ -715,11 +715,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 1600
       objectReference: {fileID: 0}
-    - target: {fileID: 6353396911132810028, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: associatedSkybox
-      value: 
-      objectReference: {fileID: 2100000, guid: 9803600998c48b140b2f7038d0fc2eb1, type: 2}
     - target: {fileID: 6810261753521468560, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: playerTransform
@@ -1781,7 +1776,7 @@ PrefabInstance:
     - target: {fileID: 2856557663059509624, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2856557663059509624, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
         type: 3}
@@ -2026,7 +2021,7 @@ PrefabInstance:
     - target: {fileID: 2871499901593167896, guid: 2a0c9adeb1b50e344acb742002b9022a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2871499901593167896, guid: 2a0c9adeb1b50e344acb742002b9022a,
         type: 3}
