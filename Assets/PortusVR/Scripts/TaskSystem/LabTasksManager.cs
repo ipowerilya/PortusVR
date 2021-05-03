@@ -35,6 +35,12 @@ public class LabTasksManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void AddMetricByIndex(string key, int index, float value)
+    {
+        GetCurrentTask().table.AddMetricByIndex(key, index, value);
+        UpdateUI();
+    }
+
     public void ToggleDone()
     {
         var task = GetCurrentTask();

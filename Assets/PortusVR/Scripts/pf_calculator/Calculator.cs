@@ -74,8 +74,8 @@ public class Calculator : MonoBehaviour
                 break;
             case "=":
                 if (operation == null) break;
-                if (!eqChain) operand = parse(inputString);
-                else buffer = parse(inputString);
+                if (!eqChain) operand = Parse(inputString);
+                else buffer = Parse(inputString);
                 eqChain = true;
                 Eval();
                 break;
@@ -85,7 +85,7 @@ public class Calculator : MonoBehaviour
         UpdateUI();
     }
 
-    float parse(string input)
+    float Parse(string input)
     {
         return float.Parse(input, System.Globalization.NumberStyles.Float);
     }
@@ -94,7 +94,7 @@ public class Calculator : MonoBehaviour
     {
         if (unaryOp.Contains(op))
         {
-            buffer = parse(inputString);
+            buffer = Parse(inputString);
             operation = op;
             opChain = true;
             Eval();
@@ -104,7 +104,7 @@ public class Calculator : MonoBehaviour
         {
             if (operation == null)
             {
-                buffer = parse(inputString);
+                buffer = Parse(inputString);
                 operation = op;
                 opChain = true;
             }
@@ -115,7 +115,7 @@ public class Calculator : MonoBehaviour
                     eqChain = false;
                     opChain = true;
                     operation = op;
-                    buffer = parse(inputString);
+                    buffer = Parse(inputString);
                 }
                 else if (opChain)
                 {
@@ -123,7 +123,7 @@ public class Calculator : MonoBehaviour
                 }
                 else
                 {
-                    operand = parse(inputString);
+                    operand = Parse(inputString);
                     opChain = true;
                     Eval();
                     operation = op;
@@ -174,6 +174,6 @@ public class Calculator : MonoBehaviour
 
     public void Insert()
     {
-        OnInsert.Invoke(buffer);
+        OnInsert.Invoke(Parse(inputString));
     }
 }

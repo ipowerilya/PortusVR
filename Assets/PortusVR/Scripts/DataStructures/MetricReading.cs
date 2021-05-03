@@ -29,13 +29,24 @@ public abstract class MetricReading : MonoBehaviour
     // Use this for adding metrics
     public void AddMetric(string key, float value)
     {
-        var decimalMult = Mathf.Pow(10, decimalPlaces);
-        value = Mathf.Round(value * decimalMult) / decimalMult;
+        value = RoundAndFindManagerIfNeeded(value);
+        taskManager.AddMetric(key, value);
+    }
+
+    public void AddMetricByIndex(string key, int index, float value)
+    {
+        value = RoundAndFindManagerIfNeeded(value);
+        taskManager.AddMetricByIndex(key, index, value);
+    }
+
+    float RoundAndFindManagerIfNeeded(float value)
+    {
         if (taskManager == null)
         {
             Debug.Log("task manager not found, this should never happen");
             FindTaskManager();
         }
-        taskManager.AddMetric(key, value);
+        var decimalMult = Mathf.Pow(10, decimalPlaces);
+        return Mathf.Round(value * decimalMult) / decimalMult;
     }
 }

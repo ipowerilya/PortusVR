@@ -10,7 +10,7 @@ using UnityEngine;
 public class MetricTable : MonoBehaviour
 {
     public List<string> orderedKeys = new List<string>();
-    public List<List<float>> rawTable = new List<List<float>>();
+    List<List<float>> rawTable = new List<List<float>>();
     Dictionary<string, int> keyIndex = new Dictionary<string, int>();
 
     bool initialized = false;
@@ -30,16 +30,37 @@ public class MetricTable : MonoBehaviour
         }
     }
 
-    public void AddMetric(string key, float value = 0)
+    public void AddMetric(string key, float value = float.NaN)
     {
-        if (keyIndex.ContainsKey(key))
+
+        var column = GetColumn(key);
+        var index = column.IndexOf(float.NaN);
+        if (index == -1)
         {
+            column.Add(value);
+            FillEmptyColumns();
             containsUnsavedData = true;
-            GetColumn(key).Add(value);
         }
         else
         {
-            throw new Exception("Metric key \"" + key + "\" does not exist");
+            AddMetricByIndex(key, index, value);
+        }
+    }
+
+    public void AddMetricByIndex(string key, int index, float value = float.NaN)
+    {
+        var column = GetColumn(key);
+        Debug.Assert(column.Count > index);
+        column[index] = value;
+        containsUnsavedData = true;
+    }
+
+    void FillEmptyColumns()
+    {
+        int maxLength = GetMaxListCount();
+        foreach (var list in rawTable)
+        {
+            list.AddRange(Enumerable.Repeat<float>(float.NaN, maxLength - list.Count));
         }
     }
 
@@ -48,9 +69,21 @@ public class MetricTable : MonoBehaviour
         return rawTable.Max(table => table.Count);
     }
 
-    public List<float> GetColumn(string key)
+    List<float> GetColumn(string key)
     {
-        return rawTable[keyIndex[key]];
+        if (keyIndex.ContainsKey(key))
+        {
+            return rawTable[keyIndex[key]];
+        }
+        else
+        {
+            throw new Exception("Metric key \"" + key + "\" does not exist");
+        }
+    }
+
+    public IReadOnlyList<float> GetConstColumn(string key)
+    {
+        return GetColumn(key);
     }
 
     public void ClearData()

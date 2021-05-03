@@ -11,15 +11,14 @@ public class Lab3ReadTimeWithDeviationFromMean : MetricReading
     {
         var time = stopwatch.Time;
         AddMetric("Время (с)", time);
-        var timeColumn = table.GetColumn("Время (с)");
-        var mean = table.GetColumn("Время (с)").Average();
+        var timeColumn = table.GetConstColumn("Время (с)");
+        var mean = table.GetConstColumn("Время (с)").Average();
 
         var deviationKey = "отклонение от среднего (с)";
-        var deviationColumn = table.GetColumn(deviationKey);
-        deviationColumn.Clear();
-        foreach (var deviation in (from t in timeColumn select t - mean))
+        var deviationColumn = table.GetConstColumn(deviationKey);
+        for (int index = 0;  index < deviationColumn.Count; ++index)
         {
-            AddMetric(deviationKey, deviation);
+            AddMetricByIndex(deviationKey, index, timeColumn[index] - mean);
         }
     }
 }

@@ -11,7 +11,7 @@ public class MetricTableRepresentation : MonoBehaviour
     public float maxCellWidth = 200;
     GridLayoutGroup group;
     MetricTable table;
-    Tuple<int, int> selectedTableLocation = null;
+    Tuple<string, int> selectedTableLocation = null;
 
     delegate void onElementClick(GameObject button);
 
@@ -52,7 +52,7 @@ public class MetricTableRepresentation : MonoBehaviour
         } 
     }
 
-    static float GetStandardDeviation(List<float> values)
+    static float GetStandardDeviation(IReadOnlyList<float> values)
     {
         float avg = values.Average();
         float sum = values.Sum(v => (v - avg) * (v - avg));
@@ -65,9 +65,9 @@ public class MetricTableRepresentation : MonoBehaviour
         if (table.GetMaxListCount() > 0)
         {
             AppendElement(group, "Mean");
-            for (int i = 0; i < table.rawTable.Count; ++i)
+            foreach (var key in table.orderedKeys)
             {
-                var values = table.rawTable[i];
+                var values = table.GetConstColumn(key);
                 if (values.Count == 0)
                 {
                     AppendElement(group, "empty");
@@ -78,9 +78,9 @@ public class MetricTableRepresentation : MonoBehaviour
                 }
             }
             AppendElement(group, "Sigma");
-            for (int i = 0; i < table.rawTable.Count; ++i)
+            foreach (var key in table.orderedKeys)
             {
-                var values = table.rawTable[i];
+                var values = table.GetConstColumn(key);
                 if (values.Count == 0)
                 {
                     AppendElement(group, "empty");
@@ -114,15 +114,16 @@ public class MetricTableRepresentation : MonoBehaviour
         for (int i = 0; i < table.GetMaxListCount(); ++i)
         {
             AppendElement(group, (i+1).ToString());
-            for (int j = 0; j < table.rawTable.Count; ++j)
+            foreach (var key in table.orderedKeys)
             {
-                var column = i;
-                var row = j;
-                var obj = AppendElement(group, table.rawTable[j].Count > i ? table.rawTable[j][i].ToString() : "empty", callback: (GameObject element) => {
-                    selectedTableLocation = new Tuple<int, int>(column, row);
+                var columnKey = key;
+                var row = i;
+                var column = table.GetConstColumn(key);
+                var obj = AppendElement(group, column[i].ToString(), callback: (GameObject element) => {
+                    selectedTableLocation = new Tuple<string, int>(columnKey, row);
                     UpdateTable();
                 });
-                if (selectedTableLocation != null && selectedTableLocation.Item1 == column && selectedTableLocation.Item2 == row)
+                if (selectedTableLocation != null && selectedTableLocation.Item1 == columnKey && selectedTableLocation.Item2 == row)
                 {
                     var button = obj.GetComponentInChildren<Button>();
                     var colors = button.colors;
@@ -139,7 +140,7 @@ public class MetricTableRepresentation : MonoBehaviour
 
     public void SetSelectedTableValue(float value)
     {
-        if (selectedTableLocation != null) table.rawTable[selectedTableLocation.Item2][selectedTableLocation.Item1] = value;
+        if (selectedTableLocation != null) table.AddMetricByIndex(selectedTableLocation.Item1, selectedTableLocation.Item2, value);
         UpdateTable();
     }
 }
