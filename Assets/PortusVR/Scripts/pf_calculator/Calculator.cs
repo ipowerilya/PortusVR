@@ -178,5 +178,6 @@ public class Calculator : MonoBehaviour
     public void Insert()
     {
         OnInsert.Invoke(Parse(inputString));
+        Command("C");
     }
 }
