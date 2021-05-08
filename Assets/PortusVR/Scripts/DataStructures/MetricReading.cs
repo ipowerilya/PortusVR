@@ -6,12 +6,11 @@ using UnityEngine;
 public abstract class MetricReading : MonoBehaviour
 {
     public int decimalPlaces = 2;
-    LabTasksManager taskManager;
     bool enabledAutoComputation { get { return GetTaskManager().lab.enabledAutoComputation; } }
 
     public MetricTable table 
     { 
-        get { return taskManager.GetCurrentTask().table; } 
+        get { return GetTaskManager().GetCurrentTask().table; } 
     }
 
     private LabTasksManager GetTaskManager()

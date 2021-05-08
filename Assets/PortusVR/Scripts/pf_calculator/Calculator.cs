@@ -9,15 +9,16 @@ public class Calculator : MonoBehaviour
     public Text bufferText;
     public FloatEvent OnInsert;
 
-    float buffer = 0;
-    float operand = 0;
+    public float buffer = 0;
+    public float operand = 0;
+
     string operation = null;
-    string inputString = "0";
+    public string inputString = "0";
+    
     bool opChain = false;
     bool eqChain = false;
 
     int maxLength = 10;
-    bool negative = false;
 
     static readonly HashSet<string> unaryOp = new HashSet<string> { "1/x", "^2", "sqrt" };
 
@@ -30,7 +31,7 @@ public class Calculator : MonoBehaviour
     public void AddDigit(string str)
     {
         Debug.Assert(str.Length == 1);
-        if (opChain || eqChain) 
+        if (opChain || eqChain)
         {
             eqChain = opChain = false;
             inputString = "0";
@@ -70,7 +71,9 @@ public class Calculator : MonoBehaviour
                 if (inputString.Length > 0) inputString = inputString.Substring(0, inputString.Length - 1);
                 break;
             case "+/-":
-                negative = !negative;
+                var value = Parse(inputString) * -1;
+                if (opChain) buffer = value;
+                inputString = value > 0 ? inputString.Substring(1, inputString.Length-1) : value == 0 ? inputString : "-" + inputString; //buffer.ToString("G" + maxLength.ToString());
                 break;
             case "=":
                 if (operation == null) break;
@@ -169,11 +172,12 @@ public class Calculator : MonoBehaviour
 
     void UpdateUI()
     {
-        bufferText.text = (negative ? "-" : "") + (inputString.StartsWith(".") ? "0" : "") + (inputString.Length == 0 ? "0" : inputString);
+        bufferText.text = (inputString.StartsWith(".") ? "0" : "") + (inputString.Length == 0 ? "0" : inputString);
     }
 
     public void Insert()
     {
         OnInsert.Invoke(Parse(inputString));
+        Command("C");
     }
 }
