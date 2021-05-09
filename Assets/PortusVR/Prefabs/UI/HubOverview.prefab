@@ -1289,6 +1289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderedKeys:
   - "\u0412\u0440\u0435\u043C\u044F (\u0441)"
+  - "\u0412\u044B\u0441\u043E\u0442\u0430 (\u043C)"
+  - "\u0423\u0441\u043A\u043E\u0440. (\u043C/\u0441^2)"
   containsUnsavedData: 0
 --- !u!1 &8318244304288931087
 GameObject:
