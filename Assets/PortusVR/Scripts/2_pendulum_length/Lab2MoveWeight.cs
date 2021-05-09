@@ -22,7 +22,7 @@ public class Lab2MoveWeight : MetricReading
     public override void ReadMetric()
     {
         var time = stopwatch.Time;
-        var numSwings = 30;
+        var numSwings = 10;
         AddMetric("Длина (М)", Vector3.Distance(moving_point.transform.position, point_to_count_distance.position));
         AddMetric("Время (с)", time);
         AddMetric("Период (с)", time / numSwings, true);
