@@ -29,6 +29,7 @@ public class HubOverview : MonoBehaviour
         else
         {
             playerScreenFader.SetFadeLevel(0f);
+            TeleportTaskSystemSoItActuallyProbablyWorks();
             UpdateTaskManager();
         }
         foreach (var lab in labs)

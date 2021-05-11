@@ -32,11 +32,15 @@ namespace BNG
         public FloatEvent onHingeChange;
         public FloatEvent onHingeSnapChange;
 
+        public float Value { get; private set; }
+
         Rigidbody rigid;
 
         private float _lastDegrees = 0;
         private float _lastSnapDegrees = 0;
         public bool IsAngle;
+        public float PeePeePooPoo = 1;
+        public bool Round = true;
 
         void Start()
         {
@@ -72,23 +76,25 @@ namespace BNG
                 _lastSnapDegrees = nearestSnap;
             }
 
+            string format = Round ? "n0" : "0.00";
+
             // Update label used for display or debugging
             if (IsAngle)
             {
                 if (LabelToUpdate)
                 {
-                    float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees) * 5;
-                    val = val / SnapDegrees + 30;
-                    LabelToUpdate.text = val.ToString("n0");
+                    Value = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees) * 5;
+                    Value = Value / SnapDegrees + 30;
+                    LabelToUpdate.text = Value.ToString(format);
                 }
             }
             else
             {
                 if (LabelToUpdate)
                 {
-                    float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
-                    val = val / SnapDegrees + 1;
-                    LabelToUpdate.text = val.ToString("n0");
+                    Value = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
+                    Value = (Value / SnapDegrees + 1) * PeePeePooPoo;
+                    LabelToUpdate.text = Value.ToString(format);
                 }
             }
         }

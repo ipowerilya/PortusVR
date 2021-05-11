@@ -5,12 +5,14 @@ using UnityEngine;
 public class Lab6CalculateFalling : MetricReading
 {
     public Stopwatch stopwatch;
+    public BNG.KnobWheightSelection knob;
     public Transform top;
     public Transform bottom;
 
     public override void ReadMetric()
     {
-        var time = stopwatch.Time;
+        var popravka = knob.Value;
+        var time = Mathf.Max(0, stopwatch.Time - popravka);
         var height = Vector3.Distance(top.position, bottom.position);
         var accel = 2 * height / time / time;
         AddMetric("Время (с)", time);
