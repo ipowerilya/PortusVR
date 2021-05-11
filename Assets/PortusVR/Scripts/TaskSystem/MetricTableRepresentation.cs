@@ -145,4 +145,10 @@ public class MetricTableRepresentation : MonoBehaviour
                                                                   selectedTableLocation.Item2, value);
         UpdateTable();
     }
+
+    public void PopRow()
+    {
+        if (table.GetMaxListCount() > 0) table.PopRow();
+        UpdateTable();
+    }
 }

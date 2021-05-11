@@ -174,4 +174,13 @@ public class MetricTable : MonoBehaviour
                 orderedKeys.Add(value);
         }
     }
+
+    public void PopRow()
+    {
+        foreach (var key in orderedKeys)
+        {
+            var column = GetColumn(key);
+            column.RemoveAt(column.Count - 1);
+        }
+    }
 }
