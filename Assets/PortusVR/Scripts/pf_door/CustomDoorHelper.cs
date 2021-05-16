@@ -61,6 +61,9 @@ public class CustomDoorHelper : MonoBehaviour {
     public UnityEvent onDoorOpen;
     public UnityEvent onDoorClosed;
 
+    public float CloseAfter = 5;
+    public float openTime = 0;
+
     void Update() {
 
         // Read Angular Velocity used for snapping door shut
@@ -72,8 +75,8 @@ public class CustomDoorHelper : MonoBehaviour {
         Vector3 currentRotation = transform.localEulerAngles;
         angle = Mathf.Floor(currentRotation.y);
 
-        if(angle >= 180) {
-            angle -= 180; 
+        if (angle >= 180) {
+            angle -= 180;
         }
         else {
             angle = 180 - angle;
@@ -81,19 +84,19 @@ public class CustomDoorHelper : MonoBehaviour {
 
         // Play Open Sound
         if (angle > 1) {
-            if(!playedOpenSound) {
+            if (!playedOpenSound) {
                 BNG.VRUtils.Instance.PlaySpatialClipAt(DoorOpenSound, transform.position, 1f, 1f);
                 playedOpenSound = true;
                 onDoorOpen.Invoke();
             }
         }
 
-        if(angle > 10) {
+        if (angle > 10) {
             readyToPlayCloseSound = true;
         }
 
         // Reset Open Sound
-        if(angle < 2 && playedOpenSound) {
+        if (angle < 2 && playedOpenSound) {
             playedOpenSound = false;
         }
 
@@ -114,7 +117,17 @@ public class CustomDoorHelper : MonoBehaviour {
             DegreesTurned = Mathf.Abs(HandleFollower.localEulerAngles.y - 270);
         }
 
-        if(DoorLockTransform) {
+        if (DegreesTurned > 1)
+        {
+            openTime = Time.time;
+            hinge.useSpring = false;
+        }
+        else
+        {
+            hinge.useSpring = Time.time - openTime > CloseAfter;
+        }
+
+        if (DoorLockTransform) {
             // 45 Degrees = Fully Open
             float moveLockAmount = 0.025f;
             float rotateAngles = 55;

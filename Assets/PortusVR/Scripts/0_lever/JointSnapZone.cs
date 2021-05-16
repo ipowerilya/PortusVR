@@ -8,7 +8,7 @@ namespace BNG {
 
         public bool SnapToParent;
         public GameObject SnapToObject;
-        public Joint SnappedObjectJoint;
+        public HingeJoint SnappedObjectJoint;
 
         [Header("Starting / Held Item")]
         [Tooltip("The currently held item. Set this in the editor to equip on start.")]
@@ -252,6 +252,12 @@ namespace BNG {
             SnappedObjectJoint.axis = new Vector3(0f,0f,1f);
             SnappedObjectJoint.anchor = this.transform.localPosition;
             SnappedObjectJoint.connectedBody = heldItemRigid;
+            var spring = new JointSpring();
+            spring.spring = 0.5f;
+            spring.damper = 0.5f;
+            spring.targetPosition = 0f;
+            SnappedObjectJoint.spring = spring;
+            SnappedObjectJoint.useSpring = true;
 
             // Set scale factor
             // Use SnapZoneScale if specified
