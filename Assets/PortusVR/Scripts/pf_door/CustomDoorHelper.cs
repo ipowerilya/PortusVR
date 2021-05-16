@@ -124,7 +124,7 @@ public class CustomDoorHelper : MonoBehaviour {
         }
         else
         {
-            hinge.useSpring = DegreesTurned < 1 && Time.time - openTime > CloseAfter;
+            hinge.useSpring = Time.time - openTime > CloseAfter;
         }
 
         if (DoorLockTransform) {
