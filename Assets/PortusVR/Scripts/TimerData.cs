@@ -25,12 +25,13 @@ public class TimerData : MetricReading
         if (!Lab7)
         {
             Distance = DistanceSrc.dist;
-            accel = 2 * Distance / TimeValue * TimeValue;
+            accel = 2 * Distance / (TimeValue * TimeValue);
             speed = accel * TimeValue;
         }
         else
         { 
             Distance = float.Parse(DistText.text);
+            speed = Distance / TimeValue;
         }
 
         //TableData = Instantiate(TableDataPrefab, TablePlaceholder.transform);
