@@ -69,7 +69,7 @@ public class HubOverview : MonoBehaviour
     {
         labOverviewUI.SetLab(GetCurrentLab());
         labMenuUI.UpdateUI(currentLabIndex);
-
+        UpdateTaskManager();
     }
 
     // TODO set scene to lab

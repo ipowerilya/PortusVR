@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 6412452562895863383}
   - component: {fileID: 6412452562895863381}
   - component: {fileID: 6412452562895863380}
-  - component: {fileID: 1426990303997098282}
+  - component: {fileID: 2022835795402824585}
   m_Layer: 0
   m_Name: PocketTask
   m_TagString: Untagged
@@ -934,7 +934,7 @@ MonoBehaviour:
   GrabPoints:
   - {fileID: 6412452563389280085}
   UseCustomInspector: 1
---- !u!54 &1426990303997098282
+--- !u!54 &2022835795402824585
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
