@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 3108920989734227437, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
       propertyPath: m_Text
-      value: Reset
+      value: "\u0421\u0431\u0440\u043E\u0441"
       objectReference: {fileID: 0}
     - target: {fileID: 3108920989734227437, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
@@ -324,7 +324,7 @@ PrefabInstance:
     - target: {fileID: 3108920989734227437, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
       propertyPath: m_Text
-      value: Stop
+      value: "\u0421\u0442\u043E\u043F"
       objectReference: {fileID: 0}
     - target: {fileID: 3108920989734227437, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
@@ -746,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 3108920989734227437, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
       propertyPath: m_Text
-      value: Start
+      value: "\u0421\u0442\u0430\u0440\u0442"
       objectReference: {fileID: 0}
     - target: {fileID: 3108920989734227437, guid: 86cc134b8c34abc4586ed59e38393906,
         type: 3}
