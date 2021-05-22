@@ -23,7 +23,7 @@ public class timer : MetricReading
         ResetTime();
     }
 
-    void ResetTime()
+    public void ResetTime()
     {
         start_time = Time.time;
     }
@@ -45,7 +45,7 @@ public class timer : MetricReading
     public void Continue()
     {
         is_stoped = false;
-        ResetTime();
+        //ResetTime();
         Update();
     }
 
