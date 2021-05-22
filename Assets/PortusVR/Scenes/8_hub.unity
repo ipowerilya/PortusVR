@@ -916,11 +916,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.00006965641
       objectReference: {fileID: 0}
-    - target: {fileID: 31730827253860877, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 457551144366114537, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -930,11 +925,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 1600
-      objectReference: {fileID: 0}
-    - target: {fileID: 509597860873511809, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 509597860873511809, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
@@ -950,6 +940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 509597860873511809, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3021852441055102667, guid: 6aa1a94bc7d15e24696c475f61fa0fb2,
         type: 3}
@@ -2441,6 +2436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223037107225066885, guid: 2a0c9adeb1b50e344acb742002b9022a,
+        type: 3}
+      propertyPath: CloseAfter
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}

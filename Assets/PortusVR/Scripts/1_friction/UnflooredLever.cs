@@ -111,6 +111,13 @@ namespace BNG
 
         private Vector3 _lastLocalAngle;
 
+        public float maxRelativeAngle = 10000;
+
+        public void SetAngleRelative(float angle)
+        {
+            SetLeverAngle(Mathf.Clamp(angle, -maxRelativeAngle, maxRelativeAngle) * (MaximumXRotation - MinimumXRotation) / (maxRelativeAngle * 2));
+        }
+
         void Start()
         {
             grab = GetComponent<Grabbable>();
@@ -154,7 +161,7 @@ namespace BNG
             LeverPercentage = GetAnglePercentage(angle);
 
             // Lever value changed event
-            OnLeverChange(LeverPercentage);
+            if (_lastLocalAngle != transform.localEulerAngles) OnLeverChange(LeverPercentage);
 
             // Up / Down Events
             if ((LeverPercentage + SwitchTolerance) > 99 && !switchedOn)
