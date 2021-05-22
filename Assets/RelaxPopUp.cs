@@ -20,7 +20,7 @@ public class RelaxPopUp : MonoBehaviour
         RelaxObject.SetActive(true);
         RelaxObject.transform.parent = Camera.main.transform;
         RelaxObject.transform.localPosition = new Vector3(0, 0, Distance);
-        RelaxObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+       // RelaxObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
         RelaxObject.transform.localRotation = Quaternion.identity;
     }
     public void StopRelaxing()
