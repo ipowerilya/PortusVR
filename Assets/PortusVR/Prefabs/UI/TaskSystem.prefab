@@ -297,6 +297,7 @@ MonoBehaviour:
   labName: Test Lab
   internalName: internal_name
   done: 0
+  enabledAutoComputation: 1
   tasks:
   - {fileID: 2856557663004565387}
   - {fileID: 2856557662768675727}
@@ -1344,6 +1345,21 @@ PrefabInstance:
     - target: {fileID: 1641434893431854627, guid: 680839cc2785ac3429472fc46455f809,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787121698684132150, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853971188281916186, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853971188281916186, guid: 680839cc2785ac3429472fc46455f809,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2488206199014737700, guid: 680839cc2785ac3429472fc46455f809,

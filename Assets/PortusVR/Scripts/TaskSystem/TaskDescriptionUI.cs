@@ -15,7 +15,7 @@ public class TaskDescriptionUI : MonoBehaviour
     {
         var task = taskManager.GetCurrentTask();
         taskName.text = task.taskName;
-        description.text = task.description;
+        description.text = task.description + (task.description.EndsWith("\n") ? "" : "\n");
         donenessToggle.isOn = task.done;
     }
 }
