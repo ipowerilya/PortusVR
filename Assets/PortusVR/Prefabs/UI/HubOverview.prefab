@@ -1660,12 +1660,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetricTableRepresentation
       objectReference: {fileID: 0}
+    - target: {fileID: 2344069374370748451, guid: 2baf0916990d0154bb03ae0c03936618,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344069374370748451, guid: 2baf0916990d0154bb03ae0c03936618,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4214817790781235267, guid: 2baf0916990d0154bb03ae0c03936618,
         type: 3}
       propertyPath: elementPrefab
       value: 
       objectReference: {fileID: 6420463184000874441, guid: 1295ece91b0b0034aaac1aaeb87c9b71,
         type: 3}
+    - target: {fileID: 6884427305119319260, guid: 2baf0916990d0154bb03ae0c03936618,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2baf0916990d0154bb03ae0c03936618, type: 3}
 --- !u!224 &1669556835008521176 stripped

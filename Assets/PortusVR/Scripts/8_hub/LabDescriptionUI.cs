@@ -12,7 +12,7 @@ public class LabDescriptionUI : MonoBehaviour
     public void SetLab(Lab lab)
     {
         labName.text = lab.labName;
-        description.text = lab.shortDescription;
+        description.text = lab.shortDescription + (lab.shortDescription.EndsWith("\n") ? "" : "\n");
         var toggle = autoComputationBtn.GetComponentInChildren<Toggle>();
         toggle.isOn = lab.enabledAutoComputation;
     }
