@@ -10,6 +10,7 @@ public class LabTasksManager : MonoBehaviour
     public List<MetricTableRepresentation> metricTableRepresentations;
     public TaskSelectionUI taskSelection;
     public TaskDescriptionUI taskDescription;
+    public TaskDescriptionUI pocketTaskDescription;
 
     public LabTask GetCurrentTask()
     {
@@ -110,6 +111,7 @@ public class LabTasksManager : MonoBehaviour
     void UpdateTaskUI()
     {
         taskDescription.UpdateUI();
+        pocketTaskDescription.UpdateUI();
     }
 
     public List<LabTask> GetTasks()
