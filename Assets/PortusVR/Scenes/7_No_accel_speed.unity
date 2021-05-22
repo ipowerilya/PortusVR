@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3029,6 +3029,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -0.000000048428774
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595175983698342652, guid: 623b6027ecd99a547b3f28ab737e4443,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595175983698342652, guid: 623b6027ecd99a547b3f28ab737e4443,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595175983698342652, guid: 623b6027ecd99a547b3f28ab737e4443,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1595175985333486884, guid: 623b6027ecd99a547b3f28ab737e4443,
         type: 3}
