@@ -9,7 +9,7 @@ public class MetricReader7 : MetricReading
     {
         AddMetric("Время (с)", TmData.TimeList[TmData.TimeList.Count - 1]);
         AddMetric("Расстояние (м)", TmData.Distance);
-        AddMetric("Скорость (м/с)", TmData.speed);
+        AddMetric("Скорость (м/с)", TmData.speed, true);
         
     }
    
