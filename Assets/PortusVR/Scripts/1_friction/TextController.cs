@@ -15,7 +15,6 @@ public class TextController : MonoBehaviour
 
     public void SetValue(float val)
     {
-        //text.text = val.ToString("000");
-        text.text = val.ToString("000.00");
+        text.text = val.ToString("0");
     }
 }

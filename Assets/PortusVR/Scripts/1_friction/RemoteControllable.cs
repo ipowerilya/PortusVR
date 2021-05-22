@@ -29,6 +29,11 @@ public class RemoteControllable : MonoBehaviour {
         onForceChange.Invoke(newForce.magnitude);
     }
 
+    public void SetForceAbsolute(float magnitude)
+    {
+        SetForce(Vector3.ClampMagnitude(maxForce.normalized * magnitude, maxForce.magnitude));
+    }
+
     public void SetForcePercentage(float percentage) {
         SetForce((maxForce * (percentage - 50f)*2f)/100f);
     }
