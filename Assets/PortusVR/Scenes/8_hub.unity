@@ -1329,6 +1329,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 745654433905827791, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 897145232806507666, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2103,6 +2108,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TaskSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396736839061953147, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396736839061953147, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4262547049573188457, guid: 5dbe7dbf2c6bd374cb0a7de57412cee3,
         type: 3}
